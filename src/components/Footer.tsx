@@ -38,8 +38,8 @@ export default function Footer() {
     {
       icon: Phone,
       label: "Phone 2",
-      value: "0790000000",
-      link: "tel:0790000000",
+      value: "0790825302",
+      link: "tel:0790825302",
       color: "from-emerald-500 to-teal-500",
     },
   ];
@@ -127,7 +127,7 @@ export default function Footer() {
           {/* Main heading section */}
           <motion.div variants={itemVariants} className="text-center mb-6 xs:mb-8 sm:mb-10 w-full px-2 xs:px-0">
             <div className="mb-4 xs:mb-5">
-              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl uppercase tracking-widest text-cyan-400 font-black mb-4 xs:mb-6 mt-4 drop-shadow-md">
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl uppercase tracking-widest text-cyan-400 font-black mb-4 xs:mb-6 mt-4 drop-shadow-md">
                 {t('footer.madeBy')}
               </p>
               <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg mb-3 xs:mb-4 leading-tight">
