@@ -51,27 +51,27 @@ export default function LandingPage() {
         {/* ─── HEADER ─── */}
         <motion.header className="w-full px-5 sm:px-8 lg:px-12 pt-10 pb-8 flex items-center justify-between" variants={itemVariants} initial="hidden" animate="visible">
           {/* School Logo - Left */}
-          <div className="flex items-center gap-4">
-            <img src="/school logo.jpg" alt="School Logo" className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-white/10 shadow-2xl" />
-            <div className="hidden sm:block">
-              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
-              <div className="text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            <img src="/school logo.jpg" alt="School Logo" className="w-20 h-20 sm:w-32 sm:h-32 rounded-2xl object-cover border-2 border-white/10 shadow-2xl" />
+            <div className="text-center">
+              <div className="text-[10px] sm:text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
             </div>
           </div>
           {/* Center Controls */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 self-start mt-4">
             <motion.div className="text-[10px] sm:text-xs font-semibold text-cyan-300 px-3 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/10" whileHover={{ scale: 1.05 }}>
               {t('global.brand.tagline')}
             </motion.div>
             <LanguageSwitcher />
           </div>
           {/* Ministry Logo - Right */}
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:block text-right">
-              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
-              <div className="text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-20 h-20 sm:w-32 sm:h-32 rounded-2xl object-contain border-2 border-white/10 shadow-2xl bg-white/5" />
+            <div className="text-center">
+              <div className="text-[10px] sm:text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
             </div>
-            <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-contain border-2 border-white/10 shadow-2xl bg-white/5" />
           </div>
         </motion.header>
 
