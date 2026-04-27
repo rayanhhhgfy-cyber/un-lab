@@ -49,28 +49,28 @@ export default function LandingPage() {
 
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         {/* ─── HEADER ─── */}
-        <motion.header className="w-full px-5 sm:px-8 lg:px-12 pt-24 pb-8 flex items-center justify-between" variants={itemVariants} initial="hidden" animate="visible">
+        <motion.header className="w-full px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 pb-8 flex items-center justify-between" variants={itemVariants} initial="hidden" animate="visible">
           {/* School Logo - Left */}
-          <div className="flex flex-col items-center gap-3">
-            <img src="/school logo.jpg" alt="School Logo" className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover border-2 border-white/10 shadow-2xl" />
-            <div className="hidden sm:block text-center">
-              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
-              <div className="text-[10px] text-slate-300 font-semibold tracking-wider">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            <img src="/school logo.jpg" alt="School Logo" className="w-16 h-16 xs:w-20 xs:h-20 sm:w-32 sm:h-32 rounded-xl sm:rounded-2xl object-cover border-2 border-white/10 shadow-2xl" />
+            <div className="text-center max-w-[120px] sm:max-w-none">
+              <div className="text-[9px] xs:text-xs font-bold text-slate-300 tracking-wide leading-tight">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
+              <div className="text-[8px] xs:text-[10px] text-slate-300 font-semibold tracking-wider leading-tight">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
             </div>
           </div>
           {/* Center Controls */}
-          <div className="flex items-center gap-3 self-start mt-8">
-            <motion.div className="text-[10px] sm:text-xs font-semibold text-cyan-300 px-3 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/10" whileHover={{ scale: 1.05 }}>
+          <div className="flex items-center gap-3 self-start mt-4 sm:mt-8">
+            <motion.div className="text-[9px] sm:text-xs font-semibold text-cyan-300 px-2.5 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/10" whileHover={{ scale: 1.05 }}>
               {t('global.brand.tagline')}
             </motion.div>
             <LanguageSwitcher />
           </div>
           {/* Ministry Logo - Right */}
-          <div className="flex flex-col items-center gap-3">
-            <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-contain border-2 border-white/10 shadow-2xl bg-white/5" />
-            <div className="hidden sm:block text-center">
-              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
-              <div className="text-[10px] text-slate-300 font-semibold tracking-wider">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-16 h-16 xs:w-20 xs:h-20 sm:w-32 sm:h-32 rounded-xl sm:rounded-2xl object-contain border-2 border-white/10 shadow-2xl bg-white/5" />
+            <div className="text-center max-w-[120px] sm:max-w-none">
+              <div className="text-[9px] xs:text-xs font-bold text-slate-300 tracking-wide leading-tight">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
+              <div className="text-[8px] xs:text-[10px] text-slate-300 font-semibold tracking-wider leading-tight">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
             </div>
           </div>
         </motion.header>
