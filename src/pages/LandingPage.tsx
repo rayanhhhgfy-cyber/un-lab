@@ -49,51 +49,44 @@ export default function LandingPage() {
 
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         {/* ─── HEADER ─── */}
-        <motion.header className="w-full px-5 sm:px-8 lg:px-12 pt-8 sm:pt-10 flex items-center justify-center" variants={itemVariants} initial="hidden" animate="visible">
-          {/* Center Controls Only */}
+        <motion.header className="w-full px-5 sm:px-8 lg:px-12 pt-10 pb-8 flex items-center justify-between" variants={itemVariants} initial="hidden" animate="visible">
+          {/* School Logo - Left */}
+          <div className="flex items-center gap-4">
+            <img src="/school logo.jpg" alt="School Logo" className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-white/10 shadow-2xl" />
+            <div className="hidden sm:block">
+              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
+              <div className="text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
+            </div>
+          </div>
+          {/* Center Controls */}
           <div className="flex items-center gap-3">
             <motion.div className="text-[10px] sm:text-xs font-semibold text-cyan-300 px-3 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/10" whileHover={{ scale: 1.05 }}>
               {t('global.brand.tagline')}
             </motion.div>
             <LanguageSwitcher />
           </div>
+          {/* Ministry Logo - Right */}
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:block text-right">
+              <div className="text-xs font-bold text-slate-300 tracking-wide">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
+              <div className="text-[10px] text-slate-500 font-semibold tracking-wider">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
+            </div>
+            <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-contain border-2 border-white/10 shadow-2xl bg-white/5" />
+          </div>
         </motion.header>
 
         {/* ─── MAIN CONTENT ─── */}
         <motion.div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8" variants={containerVariants} initial="hidden" animate="visible">
 
-          {/* ─── HERO: UN-Labs with Logos on Sides (Horizontal Mobile Layout) ─── */}
-          <motion.div className="w-full max-w-[1800px] flex flex-row items-center justify-center gap-2 xs:gap-4 sm:gap-12 lg:gap-20 mb-10 xs:mb-12 sm:mb-14 text-center px-1 xs:px-2 sm:px-4" variants={itemVariants}>
-            
-            {/* School Logo - Left Side */}
-            <div className="flex flex-col items-center gap-2 xs:gap-4 sm:gap-6 w-1/4 lg:w-1/3 order-1">
-              <img src="/school logo.jpg" alt="School Logo" className="w-12 h-12 xs:w-16 xs:h-16 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-lg xs:rounded-2xl sm:rounded-3xl object-cover border border-white/10 shadow-[0_0_40px_rgba(34,211,238,0.2)]" />
-              <div className="space-y-0.5 sm:space-y-2">
-                <div className="text-[7px] xs:text-[9px] sm:text-2xl lg:text-3xl font-black text-white tracking-tight sm:tracking-wide leading-tight drop-shadow-md">{isArabic ? "مدرسة الملك حسين" : "King Hussein"}</div>
-                <div className="text-[6px] xs:text-[8px] sm:text-lg lg:text-xl text-white font-bold tracking-tighter sm:tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الثانوية" : "School"}</div>
-              </div>
-            </div>
-
-            {/* UN-Labs Title - Center */}
-            <div className="flex flex-col items-center w-1/2 lg:w-1/3 order-2">
-              <h1 className="text-3xl xs:text-4xl sm:text-8xl lg:text-9xl font-black tracking-tighter mb-1 xs:mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">UN-Labs</span>
-              </h1>
-              <p className="text-[9px] xs:text-[11px] sm:text-3xl font-bold text-slate-300 tracking-tight sm:tracking-wide">
-                {isArabic ? "المعرفة الرقمية" : "Ultimate Knowledge"}
-              </p>
-              <div className="mt-2 xs:mt-6 h-[1px] xs:h-[2px] w-12 xs:w-48 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-            </div>
-
-            {/* Ministry Logo - Right Side */}
-            <div className="flex flex-col items-center gap-2 xs:gap-4 sm:gap-6 w-1/4 lg:w-1/3 order-3">
-              <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-12 h-12 xs:w-16 xs:h-16 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-lg xs:rounded-2xl sm:rounded-3xl object-contain border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.2)] bg-white/5" />
-              <div className="space-y-0.5 sm:space-y-2">
-                <div className="text-[7px] xs:text-[9px] sm:text-2xl lg:text-3xl font-black text-white tracking-tight sm:tracking-wide leading-tight drop-shadow-md">{isArabic ? "وزارة التربية" : "Ministry"}</div>
-                <div className="text-[6px] xs:text-[8px] sm:text-lg lg:text-xl text-white font-bold tracking-tighter sm:tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الأردن" : "Jordan"}</div>
-              </div>
-            </div>
-
+          {/* ─── HERO: UN-Labs Ultimate Knowledge ─── */}
+          <motion.div className="text-center mb-14" variants={itemVariants}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">UN-Labs</span>
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-300 tracking-wide">
+              {isArabic ? "المعرفة الرقمية" : "Ultimate Knowledge"}
+            </p>
+            <div className="mt-4 h-[1px] w-32 mx-auto bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
           </motion.div>
 
           {/* ─── INSTITUTIONAL SECTION ─── */}
