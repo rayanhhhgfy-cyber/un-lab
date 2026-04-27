@@ -62,35 +62,35 @@ export default function LandingPage() {
         {/* ─── MAIN CONTENT ─── */}
         <motion.div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8" variants={containerVariants} initial="hidden" animate="visible">
 
-          {/* ─── HERO: UN-Labs with Logos on Sides (Screenshot Layout) ─── */}
-          <motion.div className="w-full max-w-[1800px] flex flex-col lg:flex-row items-center justify-center gap-8 xs:gap-10 sm:gap-12 lg:gap-20 mb-10 xs:mb-12 sm:mb-14 text-center px-2 xs:px-4" variants={itemVariants}>
+          {/* ─── HERO: UN-Labs with Logos on Sides (Horizontal Mobile Layout) ─── */}
+          <motion.div className="w-full max-w-[1800px] flex flex-row items-center justify-center gap-2 xs:gap-4 sm:gap-12 lg:gap-20 mb-10 xs:mb-12 sm:mb-14 text-center px-1 xs:px-2 sm:px-4" variants={itemVariants}>
             
             {/* School Logo - Left Side */}
-            <div className="flex flex-col items-center gap-4 xs:gap-6 lg:w-1/3 order-2 lg:order-1">
-              <img src="/school logo.jpg" alt="School Logo" className="w-24 h-24 xs:w-32 xs:h-32 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-2xl xs:rounded-3xl object-cover border-2 border-white/10 shadow-[0_0_60px_rgba(34,211,238,0.25)]" />
-              <div className="space-y-1 xs:space-y-2">
-                <div className="text-sm xs:text-base sm:text-2xl lg:text-3xl font-black text-white tracking-wide leading-tight drop-shadow-md">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
-                <div className="text-[10px] xs:text-xs sm:text-lg lg:text-xl text-white font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
+            <div className="flex flex-col items-center gap-2 xs:gap-4 sm:gap-6 w-1/4 lg:w-1/3 order-1">
+              <img src="/school logo.jpg" alt="School Logo" className="w-12 h-12 xs:w-16 xs:h-16 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-lg xs:rounded-2xl sm:rounded-3xl object-cover border border-white/10 shadow-[0_0_40px_rgba(34,211,238,0.2)]" />
+              <div className="space-y-0.5 sm:space-y-2">
+                <div className="text-[7px] xs:text-[9px] sm:text-2xl lg:text-3xl font-black text-white tracking-tight sm:tracking-wide leading-tight drop-shadow-md">{isArabic ? "مدرسة الملك حسين" : "King Hussein"}</div>
+                <div className="text-[6px] xs:text-[8px] sm:text-lg lg:text-xl text-white font-bold tracking-tighter sm:tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الثانوية" : "School"}</div>
               </div>
             </div>
 
             {/* UN-Labs Title - Center */}
-            <div className="flex flex-col items-center lg:w-1/3 order-1 lg:order-2 mb-8 xs:mb-10 sm:mb-12 lg:mb-0">
-              <h1 className="text-5xl xs:text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter mb-2 xs:mb-4">
+            <div className="flex flex-col items-center w-1/2 lg:w-1/3 order-2">
+              <h1 className="text-3xl xs:text-4xl sm:text-8xl lg:text-9xl font-black tracking-tighter mb-1 xs:mb-4">
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">UN-Labs</span>
               </h1>
-              <p className="text-lg xs:text-xl sm:text-3xl font-bold text-slate-300 tracking-wide">
+              <p className="text-[9px] xs:text-[11px] sm:text-3xl font-bold text-slate-300 tracking-tight sm:tracking-wide">
                 {isArabic ? "المعرفة الرقمية" : "Ultimate Knowledge"}
               </p>
-              <div className="mt-4 xs:mt-6 sm:mt-8 h-[2px] w-32 xs:w-48 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+              <div className="mt-2 xs:mt-6 h-[1px] xs:h-[2px] w-12 xs:w-48 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
             </div>
 
             {/* Ministry Logo - Right Side */}
-            <div className="flex flex-col items-center gap-4 xs:gap-6 lg:w-1/3 order-3">
-              <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-24 h-24 xs:w-32 xs:h-32 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-2xl xs:rounded-3xl object-contain border-2 border-white/10 shadow-[0_0_60px_rgba(168,85,247,0.25)] bg-white/5" />
-              <div className="space-y-1 xs:space-y-2">
-                <div className="text-sm xs:text-base sm:text-2xl lg:text-3xl font-black text-white tracking-wide leading-tight drop-shadow-md">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
-                <div className="text-[10px] xs:text-xs sm:text-lg lg:text-xl text-white font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
+            <div className="flex flex-col items-center gap-2 xs:gap-4 sm:gap-6 w-1/4 lg:w-1/3 order-3">
+              <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-12 h-12 xs:w-16 xs:h-16 sm:w-48 lg:w-64 sm:h-48 lg:h-64 rounded-lg xs:rounded-2xl sm:rounded-3xl object-contain border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.2)] bg-white/5" />
+              <div className="space-y-0.5 sm:space-y-2">
+                <div className="text-[7px] xs:text-[9px] sm:text-2xl lg:text-3xl font-black text-white tracking-tight sm:tracking-wide leading-tight drop-shadow-md">{isArabic ? "وزارة التربية" : "Ministry"}</div>
+                <div className="text-[6px] xs:text-[8px] sm:text-lg lg:text-xl text-white font-bold tracking-tighter sm:tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الأردن" : "Jordan"}</div>
               </div>
             </div>
 
