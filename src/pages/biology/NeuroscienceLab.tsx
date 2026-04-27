@@ -1,13 +1,13 @@
 import { useState, Suspense, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Brain, Activity, Info, Zap, Cpu, Terminal } from "lucide-react";
+import { Info, Zap, Terminal } from "lucide-react";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Stars, Sphere, Points, PointMaterial } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
-import { motion, AnimatePresence } from "framer-motion";
+import LabShell from "@/components/layout/LabShell";
+import { motion } from "framer-motion";
 import * as THREE from 'three';
 
 function NeuralNetwork3D({ activity = 1 }) {
@@ -172,40 +172,34 @@ export default function NeuroscienceLab() {
   };
 
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#050005] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/biology" className="inline-flex items-center gap-3 text-slate-500 hover:text-purple-400 mb-12 transition-all group">
-          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/10">
-            <ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''}/>
+    <LabShell
+      backHref="/biology"
+      backLabelEn="Biology Hub"
+      backLabelAr="مركز الأحياء"
+      sectorEn="Sector · Neural Networks"
+      sectorAr="القطاع · الشبكات العصبية"
+      titleEn="Neuroscience Lab"
+      titleAr="مختبر الأعصاب"
+      descriptionEn="Tune neurotransmitter concentrations, ride action potentials across synapses, and explore how the brain transmits thought at lightspeed."
+      descriptionAr="اضبط تراكيز النواقل العصبية، اتبع جهود الفعل عبر التشابكات، واكتشف كيف ينقل الدماغ الفكرة بسرعة الضوء."
+      theme="violet"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "synapse" && <SynapseSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-violet-500/15 bg-violet-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-violet-300">
+              <span className="w-9 h-9 rounded-xl bg-violet-500/15 border border-violet-400/30 flex items-center justify-center">
+                <Info size={16}/>
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">
+              {isArabic ? theories[active].ar : theories[active].en}
+            </p>
           </div>
-          <span className="font-bold tracking-widest text-[10px] uppercase underline-offset-8">{isArabic ? "مركز الأحياء" : "Biology Hub"}</span>
-        </Link>
-
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-purple-500/50" />
-            <span className="text-purple-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "الشبكات العصبية" : "Neural Networks"}</span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white via-purple-50 to-purple-500 bg-clip-text text-transparent">
-            {isArabic ? "مختبر الأعصاب" : "Neuroscience Lab"}
-          </h1>
         </div>
-
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "synapse" && <SynapseSim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-purple-500/10 bg-purple-500/[0.02]">
-              <h2 className="text-xl font-black mb-5 flex items-center gap-3 text-purple-400">
-                <Info size={20}/>
-                {isArabic ? "الإطار النظري" : "Theoretical Framework"}
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-base">
-                {isArabic ? theories[active].ar : theories[active].en}
-              </p>
-            </div>
-          </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

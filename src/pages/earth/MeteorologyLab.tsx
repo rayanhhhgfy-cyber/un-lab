@@ -1,13 +1,13 @@
 import { useState, Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Wind, CloudLightning, Globe, Radio, Info, AlertTriangle, Play, Navigation, Thermometer } from "lucide-react";
+import { Wind, CloudLightning, Globe, Radio, Info, AlertTriangle, Navigation, Thermometer } from "lucide-react";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Stars } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
 import EarthGlobe3D from "@/components/sims/earth/EarthGlobe3D";
+import LabShell from "@/components/layout/LabShell";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ── Storm Dynamics ── */
@@ -173,19 +173,34 @@ export default function MeteorologyLab() {
     },
   };
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#02050f] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/earth-science" className="inline-flex items-center gap-3 text-slate-500 hover:text-blue-400 mb-12 transition-all group"><div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/10"><ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''} /></div><span className="font-bold tracking-widest text-[10px] uppercase">{isArabic ? "مركز علوم الأرض" : "Earth Science Hub"}</span></Link>
-        <div className="mb-12"><div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-blue-500/50" /><span className="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "الأرصاد الجوية" : "Meteorology"}</span></div><h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white to-blue-500 bg-clip-text text-transparent">{isArabic ? "مختبر الأرصاد" : "Meteorology Lab"}</h1></div>
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "storm" && <StormDynamicsSim />}
-            {active === "coriolis" && <CoriolisEffect />}
-            {active === "greenhouse" && <GreenhouseSim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-blue-500/10 bg-blue-500/[0.02]"><h2 className="text-xl font-black mb-5 flex items-center gap-3 text-blue-400"><Info size={20} />{isArabic ? "الإطار النظري" : "Theoretical Framework"}</h2><p className="text-slate-300 leading-relaxed text-base">{isArabic ? theories[active].ar : theories[active].en}</p></div>
+    <LabShell
+      backHref="/earth-science"
+      backLabelEn="Earth Science Hub"
+      backLabelAr="مركز علوم الأرض"
+      sectorEn="Sector · Meteorology"
+      sectorAr="القطاع · الأرصاد الجوية"
+      titleEn="Meteorology Lab"
+      titleAr="مختبر الأرصاد"
+      descriptionEn="Spin up a virtual storm system, ride the Coriolis force across hemispheres, and dial up greenhouse gases to forecast a changing atmosphere."
+      descriptionAr="حرّك نظاماً عاصفياً افتراضياً، ركب قوة كوريوليس عبر نصفَي الكرة، وارفع نسب غازات الدفيئة لتتنبأ بغلاف جوي متغيّر."
+      theme="blue"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "storm" && <StormDynamicsSim />}
+          {active === "coriolis" && <CoriolisEffect />}
+          {active === "greenhouse" && <GreenhouseSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-blue-500/15 bg-blue-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-blue-300">
+              <span className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-400/30 flex items-center justify-center">
+                <Info size={16} />
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
           </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+        </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

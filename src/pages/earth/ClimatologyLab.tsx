@@ -1,12 +1,12 @@
 import { useState, Suspense, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Thermometer, Sun, Info, Radio, Zap, AlertTriangle, Cloud } from "lucide-react";
+import { Thermometer, Sun, Info, Radio, AlertTriangle } from "lucide-react";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Stars, Sphere } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
+import LabShell from "@/components/layout/LabShell";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from 'three';
 
@@ -146,40 +146,34 @@ export default function ClimatologyLab() {
   };
 
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#0a0500] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/earth-science" className="inline-flex items-center gap-3 text-slate-500 hover:text-amber-400 mb-12 transition-all group">
-          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-amber-500/10">
-            <ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''}/>
+    <LabShell
+      backHref="/earth-science"
+      backLabelEn="Earth Science Hub"
+      backLabelAr="مركز علوم الأرض"
+      sectorEn="Sector · Climatology"
+      sectorAr="القطاع · علم المناخ"
+      titleEn="Climatology Lab"
+      titleAr="مختبر المناخ"
+      descriptionEn="Tune the greenhouse, project sea-level futures, and watch how a single degree of warming reshapes coasts, ice caps, and weather."
+      descriptionAr="اضبط البيت الزجاجي، توقّع مستقبل ارتفاع البحار، وشاهد كيف تعيد درجة واحدة من الاحترار تشكيل السواحل والقمم الجليدية والطقس."
+      theme="amber"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "warming" && <GlobalWarmingSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-amber-500/15 bg-amber-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-amber-300">
+              <span className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-400/30 flex items-center justify-center">
+                <Info size={16}/>
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">
+              {isArabic ? theories[active].ar : theories[active].en}
+            </p>
           </div>
-          <span className="font-bold tracking-widest text-[10px] uppercase underline-offset-8">{isArabic ? "مركز علوم الأرض" : "Earth Science Hub"}</span>
-        </Link>
-
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-amber-500/50" />
-            <span className="text-amber-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "علم المناخ" : "Climatology"}</span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white via-amber-50 to-amber-500 bg-clip-text text-transparent">
-            {isArabic ? "مختبر المناخ" : "Climatology Lab"}
-          </h1>
         </div>
-
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "warming" && <GlobalWarmingSim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-amber-500/10 bg-amber-500/[0.02]">
-              <h2 className="text-xl font-black mb-5 flex items-center gap-3 text-amber-400">
-                <Info size={20}/>
-                {isArabic ? "الإطار النظري" : "Theoretical Framework"}
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-base">
-                {isArabic ? theories[active].ar : theories[active].en}
-              </p>
-            </div>
-          </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

@@ -1,13 +1,13 @@
 import { useState, Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Microscope, Biohazard, Info, Activity, Play, RefreshCcw } from "lucide-react";
+import { Biohazard, Info, Activity, Play, RefreshCcw } from "lucide-react";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Stars } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
 import Bacteria3D from "@/components/sims/biology/Bacteria3D";
+import LabShell from "@/components/layout/LabShell";
 import { motion } from "framer-motion";
 
 /* ── Bacterial Growth Curve ── */
@@ -159,18 +159,33 @@ export default function MicrobiologyLab() {
     },
   };
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#000505] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/biology" className="inline-flex items-center gap-3 text-slate-500 hover:text-cyan-400 mb-12 transition-all group"><div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/10"><ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''} /></div><span className="font-bold tracking-widest text-[10px] uppercase">{isArabic ? "مركز الأحياء" : "Biology Hub"}</span></Link>
-        <div className="mb-12"><div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-cyan-500/50" /><span className="text-cyan-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "الأحياء الدقيقة" : "Microbiology"}</span></div><h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white to-cyan-500 bg-clip-text text-transparent">{isArabic ? "مختبر الأحياء الدقيقة" : "Microbiology Lab"}</h1></div>
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "growth" && <BacterialGrowthSim />}
-            {active === "antibiotic" && <AntibioticSim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-cyan-500/10 bg-cyan-500/[0.02]"><h2 className="text-xl font-black mb-5 flex items-center gap-3 text-cyan-400"><Info size={20} />{isArabic ? "الإطار النظري" : "Theoretical Framework"}</h2><p className="text-slate-300 leading-relaxed text-base">{isArabic ? theories[active].ar : theories[active].en}</p></div>
+    <LabShell
+      backHref="/biology"
+      backLabelEn="Biology Hub"
+      backLabelAr="مركز الأحياء"
+      sectorEn="Sector · Microbiology"
+      sectorAr="القطاع · الأحياء الدقيقة"
+      titleEn="Microbiology Lab"
+      titleAr="مختبر الأحياء الدقيقة"
+      descriptionEn="Cultivate colonies under glass, watch growth curves rise through their phases, and challenge bacteria with antibiotics to study resistance."
+      descriptionAr="استنبت المستعمرات تحت الزجاج، شاهد منحنيات النمو تصعد عبر مراحلها، واختبر مقاومة البكتيريا للمضادات الحيوية."
+      theme="cyan"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "growth" && <BacterialGrowthSim />}
+          {active === "antibiotic" && <AntibioticSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-cyan-500/15 bg-cyan-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-cyan-300">
+              <span className="w-9 h-9 rounded-xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center">
+                <Info size={16} />
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
           </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+        </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

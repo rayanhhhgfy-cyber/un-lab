@@ -1,13 +1,13 @@
 import { useState, Suspense, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Droplets, Waves, Info, Radio, Wind, Thermometer, CloudRain } from "lucide-react";
+import { Waves, Info } from "lucide-react";
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, Sphere, Torus, MeshDistortMaterial } from '@react-three/drei';
+import { OrbitControls, Float, Stars, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
-import { motion, AnimatePresence } from "framer-motion";
+import LabShell from "@/components/layout/LabShell";
+import { motion } from "framer-motion";
 import * as THREE from 'three';
 
 function WaterMolecule3D({ flow = 1 }) {
@@ -124,40 +124,34 @@ export default function HydrologyLab() {
   };
 
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#00050a] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/earth-science" className="inline-flex items-center gap-3 text-slate-500 hover:text-sky-400 mb-12 transition-all group">
-          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-sky-500/10">
-            <ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''}/>
+    <LabShell
+      backHref="/earth-science"
+      backLabelEn="Earth Science Hub"
+      backLabelAr="مركز علوم الأرض"
+      sectorEn="Sector · Hydrology"
+      sectorAr="القطاع · علم المياه"
+      titleEn="Hydrology Lab"
+      titleAr="مختبر الهيدرولوجيا"
+      descriptionEn="Carve channels and command currents — model river discharge, distinguish laminar from turbulent flow, and measure the heartbeat of a watershed."
+      descriptionAr="انحت القنوات وتحكم في التيارات — حاكِ تصريف الأنهار، ميّز التدفق الصفائحي عن المضطرب، وقس نبضات الحوض المائي."
+      theme="sky"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "discharge" && <RiverDischargeSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-sky-500/15 bg-sky-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-sky-300">
+              <span className="w-9 h-9 rounded-xl bg-sky-500/15 border border-sky-400/30 flex items-center justify-center">
+                <Info size={16}/>
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">
+              {isArabic ? theories[active].ar : theories[active].en}
+            </p>
           </div>
-          <span className="font-bold tracking-widest text-[10px] uppercase underline-offset-8">{isArabic ? "مركز علوم الأرض" : "Earth Science Hub"}</span>
-        </Link>
-
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-sky-500/50" />
-            <span className="text-sky-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "علم المياه" : "Hydrology"}</span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white via-sky-50 to-sky-500 bg-clip-text text-transparent">
-            {isArabic ? "مختبر الهيدرولوجيا" : "Hydrology Lab"}
-          </h1>
         </div>
-
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "discharge" && <RiverDischargeSim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-sky-500/10 bg-sky-500/[0.02]">
-              <h2 className="text-xl font-black mb-5 flex items-center gap-3 text-sky-400">
-                <Info size={20}/>
-                {isArabic ? "الإطار النظري" : "Theoretical Framework"}
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-base">
-                {isArabic ? theories[active].ar : theories[active].en}
-              </p>
-            </div>
-          </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

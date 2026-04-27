@@ -1,14 +1,14 @@
 import { useState, Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Dna, Play, RefreshCcw, Scissors, Microscope, Info, Terminal, Activity, Cpu, Zap } from "lucide-react";
+import { Dna, Play, RefreshCcw, Info, Activity, Zap } from "lucide-react";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Stars } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
 import DnaHelix3D from "@/components/sims/biology/DnaHelix3D";
-import { motion, AnimatePresence } from "framer-motion";
+import LabShell from "@/components/layout/LabShell";
+import { motion } from "framer-motion";
 
 /* ── DNA Replication Sim ── */
 function DnaReplicator() {
@@ -201,27 +201,34 @@ export default function GeneticsLab() {
     },
   };
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#020202] text-white ${isArabic?'rtl font-arabic':'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/biology" className="inline-flex items-center gap-3 text-slate-500 hover:text-emerald-400 mb-12 transition-all group">
-          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500/10"><ArrowLeft size={20} className={isArabic?'rotate-180':''}/></div>
-          <span className="font-bold tracking-widest text-[10px] uppercase">{isArabic ? "مركز الأحياء" : "Biology Hub"}</span>
-        </Link>
-        <div className="mb-12"><div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-emerald-500/50"/><span className="text-emerald-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "علم الجينوم" : "Genomics"}</span></div>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white to-emerald-500 bg-clip-text text-transparent">{isArabic?"مختبر الجينات":"Genetics Lab"}</h1>
-        </div>
-        <ExperimentTabs tabs={tabs}>{(active)=>(
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active==="replication" && <DnaReplicator/>}
-            {active==="mendel" && <MendelianCross/>}
-            {active==="mutation" && <MutationSim/>}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-emerald-500/10 bg-emerald-500/[0.02]">
-              <h2 className="text-xl font-black mb-5 flex items-center gap-3 text-emerald-400"><Info size={20}/>{isArabic?"الإطار النظري":"Theoretical Framework"}</h2>
-              <p className="text-slate-300 leading-relaxed text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
-            </div>
+    <LabShell
+      backHref="/biology"
+      backLabelEn="Biology Hub"
+      backLabelAr="مركز الأحياء"
+      sectorEn="Sector · Genomics"
+      sectorAr="القطاع · علم الجينوم"
+      titleEn="Genetics Lab"
+      titleAr="مختبر الجينات"
+      descriptionEn="Decode the language of life — replicate strands, run Mendelian crosses, and observe how mutations rewrite biological possibility."
+      descriptionAr="اكتشف لغة الحياة — ضاعف الأشرطة، أجرِ تهجينات مندلية، وشاهد كيف تعيد الطفرات كتابة الإمكانات البيولوجية."
+      theme="emerald"
+    >
+      <ExperimentTabs tabs={tabs}>{(active)=>(
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active==="replication" && <DnaReplicator/>}
+          {active==="mendel" && <MendelianCross/>}
+          {active==="mutation" && <MutationSim/>}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-emerald-500/15 bg-emerald-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-emerald-300">
+              <span className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center">
+                <Info size={16}/>
+              </span>
+              {isArabic?"الإطار النظري":"Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
           </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+        </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

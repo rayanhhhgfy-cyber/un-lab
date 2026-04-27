@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Microscope, Circle, Info, Play, RefreshCcw, Zap } from "lucide-react";
+import { Microscope, Circle, Info, Play, RefreshCcw, Zap } from "lucide-react";
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
+import LabShell from "@/components/layout/LabShell";
 import { motion } from "framer-motion";
 
 /* ── Mitosis Simulation ── */
@@ -160,12 +160,33 @@ export default function CellBiologyLab() {
     },
   };
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#010505] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/biology" className="inline-flex items-center gap-3 text-slate-500 hover:text-teal-400 mb-12 transition-all group"><div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-teal-500/10"><ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''} /></div><span className="font-bold tracking-widest text-[10px] uppercase">{isArabic ? "مركز الأحياء" : "Biology Hub"}</span></Link>
-        <div className="mb-12"><div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-teal-500/50" /><span className="text-teal-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "بيولوجيا الخلية" : "Cell Biology"}</span></div><h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white to-teal-500 bg-clip-text text-transparent">{isArabic ? "مختبر بيولوجيا الخلية" : "Cell Biology Lab"}</h1></div>
-        <ExperimentTabs tabs={tabs}>{(active) => (<div className="flex flex-col gap-6 lg:p-10">{active === "mitosis" && <MitosisSim />}{active === "osmosis" && <OsmosisSim />}<div className="glass rounded-[2.5rem] p-6 lg:p-10 border-teal-500/10 bg-teal-500/[0.02]"><h2 className="text-xl font-black mb-5 flex items-center gap-3 text-teal-400"><Info size={20} />{isArabic ? "الإطار النظري" : "Theoretical Framework"}</h2><p className="text-slate-300 leading-relaxed text-base">{isArabic ? theories[active].ar : theories[active].en}</p></div></div>)}</ExperimentTabs>
-      </div>
-    </div>
+    <LabShell
+      backHref="/biology"
+      backLabelEn="Biology Hub"
+      backLabelAr="مركز الأحياء"
+      sectorEn="Sector · Cell Biology"
+      sectorAr="القطاع · بيولوجيا الخلية"
+      titleEn="Cell Biology Lab"
+      titleAr="مختبر بيولوجيا الخلية"
+      descriptionEn="Zoom into the microcosm — guide a cell through mitosis, drive osmosis across a membrane, and feel biology pulse one step at a time."
+      descriptionAr="ادخل إلى عالم الأحياء الدقيق — وجّه الخلية عبر الانقسام الفتيلي، حرّك الأسموزية عبر غشاء، واشعر بنبض الحياة خطوة بخطوة."
+      theme="cyan"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "mitosis" && <MitosisSim />}
+          {active === "osmosis" && <OsmosisSim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-cyan-500/15 bg-cyan-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-cyan-300">
+              <span className="w-9 h-9 rounded-xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center">
+                <Info size={16} />
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
+          </div>
+        </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }

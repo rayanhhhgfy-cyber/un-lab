@@ -1,4 +1,5 @@
 import { ReactNode, useState } from "react";
+import { motion } from "framer-motion";
 
 interface Tab {
   id: string;
@@ -13,21 +14,46 @@ interface ExperimentTabsProps {
 
 export default function ExperimentTabs({ tabs, children }: ExperimentTabsProps) {
   const [active, setActive] = useState(tabs[0]?.id ?? "");
+
   return (
     <div className="w-full">
-      <div className="flex gap-0.5 xs:gap-1 overflow-x-auto pb-1 xs:pb-1.5 sm:pb-2 mb-3 xs:mb-4 sm:mb-5 md:mb-6 scrollbar-none -mx-2 xs:-mx-3 sm:-mx-4 md:-mx-6 lg:-mx-8 xl:-mx-12 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActive(tab.id)}
-            className={`flex items-center gap-0.5 xs:gap-1 px-2 xs:px-3 sm:px-4 md:px-5 py-1.5 xs:py-2 sm:py-2.5 md:py-3 rounded-lg text-xs xs:text-xs sm:text-sm md:text-base font-medium border transition whitespace-nowrap flex-shrink-0 ${
-              active === tab.id ? "tab-active" : "tab-inactive"
-            }`}
-          >
-            {tab.icon}
-            {tab.label}
-          </button>
-        ))}
+      <div className="relative mb-5 sm:mb-7 md:mb-8">
+        <div
+          className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto scrollbar-none p-1 sm:p-1.5 rounded-2xl border border-white/[0.07] bg-white/[0.025] backdrop-blur-xl shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]"
+          role="tablist"
+        >
+          {tabs.map((tab) => {
+            const isActive = active === tab.id;
+            return (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActive(tab.id)}
+                className={`relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs md:text-sm font-semibold whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
+                  isActive
+                    ? "text-white"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="exp-tab-active"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/[0.12] to-white/[0.04] border border-white/15 shadow-[0_4px_18px_-4px_rgba(255,255,255,0.18)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span className="relative flex items-center gap-1.5 sm:gap-2">
+                  {tab.icon && <span className="opacity-90 shrink-0">{tab.icon}</span>}
+                  <span>{tab.label}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        {/* Subtle edge fades to hint at horizontal scroll on mobile */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-6 sm:hidden bg-gradient-to-r from-black to-transparent rounded-l-2xl" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-6 sm:hidden bg-gradient-to-l from-black to-transparent rounded-r-2xl" />
       </div>
       {children(active)}
     </div>

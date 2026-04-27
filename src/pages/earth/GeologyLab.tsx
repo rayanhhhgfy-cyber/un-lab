@@ -1,12 +1,12 @@
 import { useState, Suspense, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
-import { ArrowLeft, Mountain, MoveHorizontal, Activity, Info, Globe, Gem } from "lucide-react";
+import { Mountain, MoveHorizontal, Info, Globe, Gem } from "lucide-react";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars, Box, Sphere } from '@react-three/drei';
 import ParamSlider from "@/components/ui/ParamSlider";
 import ResultDisplay from "@/components/ui/ResultDisplay";
 import ExperimentTabs from "@/components/ui/ExperimentTabs";
+import LabShell from "@/components/layout/LabShell";
 import * as THREE from 'three';
 import { motion } from "framer-motion";
 
@@ -116,18 +116,33 @@ export default function GeologyLab() {
     },
   };
   return (
-    <div className={`min-h-screen w-full pt-24 pb-20 px-4 md:px-12 bg-[#020202] text-white ${isArabic ? 'rtl font-arabic' : 'font-sans'}`}>
-      <div className="max-w-[1600px] mx-auto">
-        <Link to="/earth-science" className="inline-flex items-center gap-3 text-slate-500 hover:text-amber-400 mb-12 transition-all group"><div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-amber-500/10"><ArrowLeft size={20} className={isArabic ? 'rotate-180' : ''} /></div><span className="font-bold tracking-widest text-[10px] uppercase">{isArabic ? "مركز علوم الأرض" : "Earth Science Hub"}</span></Link>
-        <div className="mb-12"><div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-amber-500/50" /><span className="text-amber-500 font-mono text-xs tracking-[0.5em] uppercase">{isArabic ? "الجيولوجيا" : "Geology"}</span></div><h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-white to-amber-500 bg-clip-text text-transparent">{isArabic ? "مختبر الجيولوجيا" : "Geology Lab"}</h1></div>
-        <ExperimentTabs tabs={tabs}>{(active) => (
-          <div className="flex flex-col gap-6 lg:p-10">
-            {active === "tectonics" && <TectonicsSim />}
-            {active === "minerals" && <MineralogySim />}
-            <div className="glass rounded-[2.5rem] p-6 lg:p-10 border-amber-500/10 bg-amber-500/[0.02]"><h2 className="text-xl font-black mb-5 flex items-center gap-3 text-amber-400"><Info size={20} />{isArabic ? "الإطار النظري" : "Theoretical Framework"}</h2><p className="text-slate-300 leading-relaxed text-base">{isArabic ? theories[active].ar : theories[active].en}</p></div>
+    <LabShell
+      backHref="/earth-science"
+      backLabelEn="Earth Science Hub"
+      backLabelAr="مركز علوم الأرض"
+      sectorEn="Sector · Geology"
+      sectorAr="القطاع · الجيولوجيا"
+      titleEn="Geology Lab"
+      titleAr="مختبر الجيولوجيا"
+      descriptionEn="Drift continents at your fingertips, identify minerals on the Mohs scale, and uncover the deep architecture beneath our planet's crust."
+      descriptionAr="حرّك القارات بأطراف أصابعك، حدد المعادن على مقياس موس، واكتشف البنية العميقة تحت قشرة كوكبنا."
+      theme="amber"
+    >
+      <ExperimentTabs tabs={tabs}>{(active) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {active === "tectonics" && <TectonicsSim />}
+          {active === "minerals" && <MineralogySim />}
+          <div className="glass rounded-3xl p-6 sm:p-8 md:p-10 border-amber-500/15 bg-amber-500/[0.025]">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-3 text-amber-300">
+              <span className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-400/30 flex items-center justify-center">
+                <Info size={16} />
+              </span>
+              {isArabic ? "الإطار النظري" : "Theoretical Framework"}
+            </h2>
+            <p className="text-slate-300/90 leading-relaxed text-sm sm:text-base">{isArabic ? theories[active].ar : theories[active].en}</p>
           </div>
-        )}</ExperimentTabs>
-      </div>
-    </div>
+        </div>
+      )}</ExperimentTabs>
+    </LabShell>
   );
 }
