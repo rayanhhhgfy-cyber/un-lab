@@ -70,7 +70,7 @@ export default function LandingPage() {
               <img src="/school logo.jpg" alt="School Logo" className="w-40 h-40 xs:w-48 xs:h-48 sm:w-64 sm:h-64 rounded-3xl object-cover border-2 border-white/10 shadow-[0_0_60px_rgba(34,211,238,0.25)]" />
               <div className="space-y-2">
                 <div className="text-lg xs:text-xl sm:text-3xl font-black text-white tracking-wide leading-tight drop-shadow-md">{isArabic ? "مدرسة الملك حسين بن طلال" : "King Hussein Bin Talal"}</div>
-                <div className="text-sm xs:text-base sm:text-xl text-cyan-400 font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
+                <div className="text-sm xs:text-base sm:text-xl text-white font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "الثانوية الشاملة للبنين" : "Secondary School for Boys"}</div>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function LandingPage() {
               <img src="/ministery of education logo.webp" alt={isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"} className="w-40 h-40 xs:w-48 xs:h-48 sm:w-64 sm:h-64 rounded-3xl object-contain border-2 border-white/10 shadow-[0_0_60px_rgba(168,85,247,0.25)] bg-white/5" />
               <div className="space-y-2">
                 <div className="text-lg xs:text-xl sm:text-3xl font-black text-white tracking-wide leading-tight drop-shadow-md">{isArabic ? "وزارة التربية والتعليم" : "Ministry of Education"}</div>
-                <div className="text-sm xs:text-base sm:text-xl text-purple-400 font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
+                <div className="text-sm xs:text-base sm:text-xl text-white font-bold tracking-wider leading-tight uppercase opacity-90">{isArabic ? "المملكة الأردنية الهاشمية" : "Hashemite Kingdom of Jordan"}</div>
               </div>
             </div>
 
