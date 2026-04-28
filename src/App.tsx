@@ -1,4 +1,4 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -6,45 +6,59 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/Footer.tsx";
-import LandingPage from "./pages/LandingPage.tsx";
-import VRLabsPage from "./pages/VRLabsPage.tsx";
-import ChemistryIndex from "./pages/ChemistryIndex.tsx";
-import PhysicsLayout from "./pages/PhysicsLayout.tsx";
-import PhysicsIndexPage from "./pages/PhysicsIndexPage.tsx";
-import BiologyPage from "./pages/BiologyPage.tsx";
-import EarthSciencePage from "./pages/EarthSciencePage.tsx";
-import GeneticsLab from "./pages/biology/GeneticsLab.tsx";
-import AnatomyLab from "./pages/biology/AnatomyLab.tsx";
-import MicrobiologyLab from "./pages/biology/MicrobiologyLab.tsx";
-import EcologyLab from "./pages/biology/EcologyLab.tsx";
-import CellBiologyLab from "./pages/biology/CellBiologyLab.tsx";
-import NeuroscienceLab from "./pages/biology/NeuroscienceLab.tsx";
-import MeteorologyLab from "./pages/earth/MeteorologyLab.tsx";
-import VolcanologyLab from "./pages/earth/VolcanologyLab.tsx";
-import GeologyLab from "./pages/earth/GeologyLab.tsx";
-import HydrologyLab from "./pages/earth/HydrologyLab.tsx";
-import ClimatologyLab from "./pages/earth/ClimatologyLab.tsx";
-import CartographyLab from "./pages/earth/CartographyLab.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import RouteFallback from "@/components/layout/RouteFallback";
 
-// Physics Pages
-import MechanicsPage from "./pages/physics/MechanicsPage.tsx";
-import ElectromagnetismPage from "./pages/physics/ElectromagnetismPage.tsx";
-import ThermodynamicsPage from "./pages/physics/ThermodynamicsPage.tsx";
-import WavesPage from "./pages/physics/WavesPage.tsx";
-import ModernPhysicsPage from "./pages/physics/ModernPhysicsPage.tsx";
-import OpticsPage from "./pages/physics/OpticsPage.tsx";
-import LibraryPage from "./pages/physics/LibraryPage.tsx";
-import ChallengesPage from "./pages/physics/ChallengesPage.tsx";
-import UnitConverterPage from "./pages/physics/UnitConverterPage.tsx";
-import FormulaCalcPage from "./pages/physics/FormulaCalcPage.tsx";
-import GlossaryPage from "./pages/physics/GlossaryPage.tsx";
-import PhysicsNotFound from "./pages/physics/NotFound.tsx";
+const LandingPage = lazy(() => import("./pages/LandingPage.tsx"));
+const VRLabsPage = lazy(() => import("./pages/VRLabsPage.tsx"));
+const ChemistryIndex = lazy(() => import("./pages/ChemistryIndex.tsx"));
+const PhysicsLayout = lazy(() => import("./pages/PhysicsLayout.tsx"));
+const PhysicsIndexPage = lazy(() => import("./pages/PhysicsIndexPage.tsx"));
+const BiologyPage = lazy(() => import("./pages/BiologyPage.tsx"));
+const EarthSciencePage = lazy(() => import("./pages/EarthSciencePage.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+
+const GeneticsLab = lazy(() => import("./pages/biology/GeneticsLab.tsx"));
+const AnatomyLab = lazy(() => import("./pages/biology/AnatomyLab.tsx"));
+const MicrobiologyLab = lazy(() => import("./pages/biology/MicrobiologyLab.tsx"));
+const EcologyLab = lazy(() => import("./pages/biology/EcologyLab.tsx"));
+const CellBiologyLab = lazy(() => import("./pages/biology/CellBiologyLab.tsx"));
+const NeuroscienceLab = lazy(() => import("./pages/biology/NeuroscienceLab.tsx"));
+
+const MeteorologyLab = lazy(() => import("./pages/earth/MeteorologyLab.tsx"));
+const VolcanologyLab = lazy(() => import("./pages/earth/VolcanologyLab.tsx"));
+const GeologyLab = lazy(() => import("./pages/earth/GeologyLab.tsx"));
+const HydrologyLab = lazy(() => import("./pages/earth/HydrologyLab.tsx"));
+const ClimatologyLab = lazy(() => import("./pages/earth/ClimatologyLab.tsx"));
+const CartographyLab = lazy(() => import("./pages/earth/CartographyLab.tsx"));
+
+const MechanicsPage = lazy(() => import("./pages/physics/MechanicsPage.tsx"));
+const ElectromagnetismPage = lazy(() => import("./pages/physics/ElectromagnetismPage.tsx"));
+const ThermodynamicsPage = lazy(() => import("./pages/physics/ThermodynamicsPage.tsx"));
+const WavesPage = lazy(() => import("./pages/physics/WavesPage.tsx"));
+const ModernPhysicsPage = lazy(() => import("./pages/physics/ModernPhysicsPage.tsx"));
+const OpticsPage = lazy(() => import("./pages/physics/OpticsPage.tsx"));
+const LibraryPage = lazy(() => import("./pages/physics/LibraryPage.tsx"));
+const ChallengesPage = lazy(() => import("./pages/physics/ChallengesPage.tsx"));
+const UnitConverterPage = lazy(() => import("./pages/physics/UnitConverterPage.tsx"));
+const FormulaCalcPage = lazy(() => import("./pages/physics/FormulaCalcPage.tsx"));
+const GlossaryPage = lazy(() => import("./pages/physics/GlossaryPage.tsx"));
+const PhysicsNotFound = lazy(() => import("./pages/physics/NotFound.tsx"));
 
 import { ChatProvider } from "@/components/chat/ChatContext";
-import ChatWidget from "@/components/chat/ChatWidget";
+import { SearchProvider } from "@/components/search/SearchContext";
+import PwaInstallBanner from "@/components/pwa/PwaInstallBanner";
+const ChatWidget = lazy(() => import("@/components/chat/ChatWidget"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+      gcTime: 5 * 60 * 1000,
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -53,58 +67,59 @@ const App = () => (
       <Sonner />
       <ChatProvider>
         <BrowserRouter>
+          <SearchProvider>
           <Navbar />
           <div className="flex flex-col min-h-screen w-full pt-14 relative">
             <div className="flex-1">
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                {/* VR Labs Route */}
-                <Route path="/vr-labs" element={<VRLabsPage />} />
-                {/* Chemistry Routes */}
-                <Route path="/chemistry" element={<ChemistryIndex />} />
-                {/* Biology Route */}
-                <Route path="/biology">
-                  <Route index element={<BiologyPage />} />
-                  <Route path="genetics" element={<GeneticsLab />} />
-                  <Route path="anatomy" element={<AnatomyLab />} />
-                  <Route path="microbiology" element={<MicrobiologyLab />} />
-                  <Route path="ecology" element={<EcologyLab />} />
-                  <Route path="cells" element={<CellBiologyLab />} />
-                  <Route path="neuroscience" element={<NeuroscienceLab />} />
-                </Route>
-                {/* Earth Science Route */}
-                <Route path="/earth-science">
-                  <Route index element={<EarthSciencePage />} />
-                  <Route path="geology" element={<GeologyLab />} />
-                  <Route path="meteorology" element={<MeteorologyLab />} />
-                  <Route path="volcanology" element={<VolcanologyLab />} />
-                  <Route path="hydrology" element={<HydrologyLab />} />
-                  <Route path="climatology" element={<ClimatologyLab />} />
-                  <Route path="cartography" element={<CartographyLab />} />
-                </Route>
-                {/* Physics Routes */}
-                <Route path="/physics" element={<PhysicsLayout />}>
-                  <Route index element={<PhysicsIndexPage />} />
-                  <Route path="mechanics" element={<MechanicsPage />} />
-                  <Route path="electromagnetism" element={<ElectromagnetismPage />} />
-                  <Route path="thermodynamics" element={<ThermodynamicsPage />} />
-                  <Route path="waves" element={<WavesPage />} />
-                  <Route path="optics" element={<OpticsPage />} />
-                  <Route path="modern" element={<ModernPhysicsPage />} />
-                  <Route path="library" element={<LibraryPage />} />
-                  <Route path="challenges" element={<ChallengesPage />} />
-                  <Route path="converter" element={<UnitConverterPage />} />
-                  <Route path="calculator" element={<FormulaCalcPage />} />
-                  <Route path="glossary" element={<GlossaryPage />} />
-                  <Route path="*" element={<PhysicsNotFound />} />
-                </Route>
-                {/* Catch-all */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<RouteFallback />}>
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/vr-labs" element={<VRLabsPage />} />
+                  <Route path="/chemistry" element={<ChemistryIndex />} />
+                  <Route path="/biology">
+                    <Route index element={<BiologyPage />} />
+                    <Route path="genetics" element={<GeneticsLab />} />
+                    <Route path="anatomy" element={<AnatomyLab />} />
+                    <Route path="microbiology" element={<MicrobiologyLab />} />
+                    <Route path="ecology" element={<EcologyLab />} />
+                    <Route path="cells" element={<CellBiologyLab />} />
+                    <Route path="neuroscience" element={<NeuroscienceLab />} />
+                  </Route>
+                  <Route path="/earth-science">
+                    <Route index element={<EarthSciencePage />} />
+                    <Route path="geology" element={<GeologyLab />} />
+                    <Route path="meteorology" element={<MeteorologyLab />} />
+                    <Route path="volcanology" element={<VolcanologyLab />} />
+                    <Route path="hydrology" element={<HydrologyLab />} />
+                    <Route path="climatology" element={<ClimatologyLab />} />
+                    <Route path="cartography" element={<CartographyLab />} />
+                  </Route>
+                  <Route path="/physics" element={<PhysicsLayout />}>
+                    <Route index element={<PhysicsIndexPage />} />
+                    <Route path="mechanics" element={<MechanicsPage />} />
+                    <Route path="electromagnetism" element={<ElectromagnetismPage />} />
+                    <Route path="thermodynamics" element={<ThermodynamicsPage />} />
+                    <Route path="waves" element={<WavesPage />} />
+                    <Route path="optics" element={<OpticsPage />} />
+                    <Route path="modern" element={<ModernPhysicsPage />} />
+                    <Route path="library" element={<LibraryPage />} />
+                    <Route path="challenges" element={<ChallengesPage />} />
+                    <Route path="converter" element={<UnitConverterPage />} />
+                    <Route path="calculator" element={<FormulaCalcPage />} />
+                    <Route path="glossary" element={<GlossaryPage />} />
+                    <Route path="*" element={<PhysicsNotFound />} />
+                  </Route>
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
             </div>
             <Footer />
           </div>
-          <ChatWidget />
+          <Suspense fallback={null}>
+            <ChatWidget />
+          </Suspense>
+          <PwaInstallBanner />
+          </SearchProvider>
         </BrowserRouter>
       </ChatProvider>
     </TooltipProvider>

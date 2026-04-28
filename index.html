@@ -6,12 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#000000" />
     <meta name="background-color" content="#000000" />
-    <link rel="icon" type="image/x-icon" href="/atom.ico" />
-    <link rel="apple-touch-icon" href="/atom.ico" />
-    <title>UN - Scientific Laboratory</title>
-    <meta property="og:title" content="UN - Chemistry Laboratory" />
-    <meta property="og:description" content="Explore chemistry with an interactive reaction simulator featuring the periodic table" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="UN Lab" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512.png" />
+    <link rel="apple-touch-icon" href="/pwa-180.png" sizes="180x180" />
+    <link rel="preload" as="image" href="/pwa-192.png" />
+    <title>UN Lab — Interactive Science Laboratory</title>
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UN Lab" />
+    <meta property="og:title" content="UN Lab — Interactive Science Laboratory" />
+    <meta property="og:description" content="Explore chemistry, physics, biology & earth sciences with interactive 3D simulations, 500+ real reactions, and a live periodic table." />
+    <meta property="og:image" content="/api/og" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="UN Lab — Interactive Science Laboratory" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UN Lab — Interactive Science Laboratory" />
+    <meta name="twitter:description" content="Explore chemistry, physics, biology & earth sciences with interactive 3D simulations." />
+    <meta name="twitter:image" content="/api/og" />
+    <style>
+      html { background: #000; }
+      body { background: #000; color-scheme: dark; }
+      #root:empty::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(ellipse at center, #0a0a14 0%, #000 70%);
+      }
+    </style>
   </head>
 
   <body class="bg-black">

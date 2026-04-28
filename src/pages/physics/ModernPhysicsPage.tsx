@@ -76,7 +76,12 @@ function QuantumAtomSim() {
     <div className="grid lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_320px] gap-2 xs:gap-3 sm:gap-4 md:gap-5 w-full">
       <div className="glass rounded-xl sm:rounded-2xl overflow-hidden aspect-video relative w-full">
         <WebGLErrorBoundary>
-          <Canvas camera={{ position: [0, 2, 5], fov: 45 }}>
+          <Canvas
+            camera={{ position: [0, 2, 5], fov: 45 }}
+            dpr={[1, 1.75]}
+            gl={{ antialias: true, powerPreference: 'high-performance' }}
+            performance={{ min: 0.5 }}
+          >
             <ambientLight intensity={0.15} />
             <pointLight position={[3, 3, 3]} intensity={0.6} color="#8b5cf6" />
             <pointLight position={[-3, -2, 2]} intensity={0.3} color="#00d4aa" />

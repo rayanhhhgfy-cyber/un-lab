@@ -34,7 +34,7 @@ function StormDynamicsSim() {
   return (
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="relative glass rounded-[2.5rem] min-h-[400px] lg:min-h-[600px] bg-[#050a1a] border-sky-500/20 overflow-hidden">
-        <div className="absolute inset-0"><Canvas camera={{ position: [0, 0, 10], fov: 45 }}><ambientLight intensity={0.4} /><pointLight position={[10, 10, 10]} color="#38bdf8" intensity={2} /><Suspense fallback={null}><Float speed={1} rotationIntensity={0.2}><EarthGlobe3D stormIntensity={windSpeed} /></Float><Stars count={3000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /></Canvas></div>
+        <div className="absolute inset-0"><Canvas camera={{ position: [0, 0, 10], fov: 45 }} dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }} performance={{ min: 0.5 }}><ambientLight intensity={0.4} /><pointLight position={[10, 10, 10]} color="#38bdf8" intensity={2} /><Suspense fallback={null}><Float speed={1} rotationIntensity={0.2}><EarthGlobe3D stormIntensity={windSpeed} /></Float><Stars count={3000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /></Canvas></div>
         {/* HUD */}
         <div className="absolute top-6 left-6 z-10 space-y-3">
           <div className="px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 backdrop-blur-xl"><div className="flex items-center gap-2 text-blue-400 font-mono text-[10px]"><Radio size={12} className="animate-pulse" />{isArabic ? "عمليات الأرصاد // بث مباشر" : "MET-OPS // LIVE FEED"}</div></div>

@@ -8,7 +8,15 @@ const resources = {
   ar: { translation: arTranslations },
 };
 
-const savedLanguage = localStorage.getItem('language') || 'en';
+function readSavedLanguage(): string {
+  try {
+    return localStorage.getItem("language") || "en";
+  } catch {
+    return "en";
+  }
+}
+
+const savedLanguage = readSavedLanguage();
 
 i18n
   .use(initReactI18next)
@@ -22,7 +30,11 @@ i18n
   });
 
 i18n.on('languageChanged', (lng) => {
-  localStorage.setItem('language', lng);
+  try {
+    localStorage.setItem('language', lng);
+  } catch {
+    /* storage blocked */
+  }
   document.documentElement.lang = lng;
   document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
 });

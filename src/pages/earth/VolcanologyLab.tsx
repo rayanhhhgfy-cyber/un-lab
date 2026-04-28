@@ -32,7 +32,28 @@ function EruptionSim() {
   return (
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="relative glass rounded-[2.5rem] min-h-[400px] lg:min-h-[600px] bg-black/40 border-orange-500/20 overflow-hidden">
-        <Canvas camera={{ position: [0, 5, 15], fov: 45 }}><ambientLight intensity={0.3} /><pointLight position={[10, 10, 10]} color="#ff4500" intensity={2} /><Suspense fallback={null}><Volcano3D eruptionIntensity={intensity} /><Stars count={3000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.3} /></Canvas>
+        <Canvas
+          camera={{ position: [0, 4, 13], fov: 55 }}
+          dpr={[1, 1.75]}
+          gl={{ antialias: true, powerPreference: 'high-performance' }}
+          performance={{ min: 0.5 }}
+        >
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 10]} color="#ff4500" intensity={2} />
+          <Suspense fallback={null}>
+            <Volcano3D eruptionIntensity={intensity} />
+            <Stars count={3500} radius={60} depth={50} factor={4} fade speed={0.5} />
+          </Suspense>
+          <OrbitControls
+            enableZoom={true}
+            minDistance={9}
+            maxDistance={22}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI / 2.05}
+            autoRotate
+            autoRotateSpeed={0.4}
+          />
+        </Canvas>
         {/* HUD */}
         <div className="absolute top-6 left-6 p-3 rounded-xl bg-black/60 border border-white/5 backdrop-blur-md"><div className="flex items-center gap-2 text-orange-400 font-mono text-[10px]"><Flame size={12} className="animate-pulse" />{isArabic ? "مراقبة غرفة الصهارة" : "MAGMA CHAMBER MONITOR"}</div></div>
         <div className="absolute top-6 right-6 text-right"><div className="text-4xl font-black text-orange-500">{lavaTemp}°C</div><div className="text-[10px] text-orange-400/50 font-mono uppercase">{isArabic ? "حرارة المركز" : "Core Temp"}</div></div>

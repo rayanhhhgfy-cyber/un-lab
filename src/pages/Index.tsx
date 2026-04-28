@@ -49,7 +49,7 @@ const Index = () => {
     setReacting(true);
     setReaction(r);
     setNoMatch(false);
-    setTimeout(() => { setReacting(false); setHistory(p => [r, ...p.slice(0, 29)]); }, 4000);
+    setTimeout(() => { setReacting(false); setHistory(p => [r, ...p.slice(0, 29)]); }, 8000);
   }, [selectedElements, selectedCompounds]);
 
   return (

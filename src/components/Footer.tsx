@@ -162,8 +162,9 @@ export default function Footer() {
                 <motion.a
                   key={i}
                   href={item.link}
-                  whileHover={{ y: -6, scale: 1.05 }}
+                  whileHover={{ y: -6, scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
                   className="relative group"
                 >
                   {/* Animated glow background */}

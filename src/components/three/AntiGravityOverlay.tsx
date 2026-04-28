@@ -37,7 +37,9 @@ export default function AntiGravityOverlay() {
             depth: true,
           }}
           style={{ background: "transparent" }}
-          dpr={Math.min(window.devicePixelRatio, 2)} // Limit DPR for performance
+          dpr={[1, 1.5]}
+          performance={{ min: 0.5 }}
+          frameloop="always"
         >
           <Suspense fallback={null}>
             {/* Ambient fill — very low so it doesn't flatten the glass */}

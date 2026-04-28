@@ -30,7 +30,7 @@ function DnaReplicator() {
   return (
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="glass rounded-[2.5rem] p-6 lg:p-10 min-h-[500px] flex flex-col items-center justify-center bg-black/40 border-emerald-500/20 relative overflow-hidden">
-        <div className="absolute inset-0"><Canvas camera={{position:[0,0,8],fov:50}}><ambientLight intensity={0.4}/><pointLight position={[5,5,5]} color="#10b981" intensity={2}/><Suspense fallback={null}><Float speed={2} rotationIntensity={0.3}><DnaHelix3D speed={running?3:1} baseCount={20}/></Float><Stars count={3000} fade/></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={running?3:1}/></Canvas></div>
+        <div className="absolute inset-0"><Canvas camera={{position:[0,0,8],fov:50}} dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }} performance={{ min: 0.5 }}><ambientLight intensity={0.4}/><pointLight position={[5,5,5]} color="#10b981" intensity={2}/><Suspense fallback={null}><Float speed={2} rotationIntensity={0.3}><DnaHelix3D speed={running?3:1} baseCount={20}/></Float><Stars count={3000} fade/></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={running?3:1}/></Canvas></div>
         <div className="relative z-10 mt-auto w-full max-w-lg">
           <div className="flex gap-2 justify-center flex-wrap mb-6">{sequence.map((b,i)=>(
             <div key={i} className="flex flex-col items-center gap-1">

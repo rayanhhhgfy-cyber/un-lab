@@ -52,7 +52,7 @@ function BacterialGrowthSim() {
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="glass rounded-[2.5rem] min-h-[350px] lg:min-h-[550px] bg-black/40 border-cyan-500/20 relative overflow-hidden">
         {/* 3D Bacteria Background */}
-        <div className="absolute inset-0 opacity-30"><Canvas camera={{ position: [0, 0, 8] }}><ambientLight intensity={0.5} /><pointLight position={[5, 5, 5]} color="#06b6d4" intensity={2} /><Suspense fallback={null}><Float speed={3}><Bacteria3D activity={running ? 3 : 1} /></Float><Stars count={2000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate /></Canvas></div>
+        <div className="absolute inset-0 opacity-30"><Canvas camera={{ position: [0, 0, 8] }} dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }} performance={{ min: 0.5 }}><ambientLight intensity={0.5} /><pointLight position={[5, 5, 5]} color="#06b6d4" intensity={2} /><Suspense fallback={null}><Float speed={3}><Bacteria3D activity={running ? 3 : 1} /></Float><Stars count={2000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate /></Canvas></div>
         
         {/* Growth Curve Graph */}
         <div className="relative z-10 p-6 lg:p-10 h-full flex flex-col justify-center">

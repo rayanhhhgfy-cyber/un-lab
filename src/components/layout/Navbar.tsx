@@ -1,14 +1,23 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Atom, Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Atom, Menu, X, ChevronDown, Search } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useSearch } from "@/components/search/SearchContext";
 
 export default function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
+  const { openSearch } = useSearch();
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator === "undefined") return;
+    const ua = navigator.userAgent || navigator.platform || "";
+    setIsMac(/Mac|iPhone|iPad|iPod/.test(ua));
+  }, []);
 
   const navLinks = [
     { path: "/", label: t("nav.home") },
@@ -94,6 +103,33 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-1 sm:gap-2">
+          {/* Desktop search pill */}
+          <button
+            type="button"
+            onClick={openSearch}
+            className="hidden md:flex group relative items-center gap-2 h-8 pl-3 pr-2 rounded-full border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] hover:border-white/20 transition-colors"
+            aria-label={t("search.aria_label") as string}
+          >
+            <Search className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-300 transition-colors" />
+            <span className="text-[11px] text-slate-400 group-hover:text-slate-200 transition-colors">
+              {t("search.placeholder")}
+            </span>
+            <span className="ml-2 inline-flex items-center gap-0.5 rounded-md border border-white/10 bg-black/40 px-1.5 py-0.5 font-mono text-[10px] text-slate-300">
+              {isMac ? "⌘" : "Ctrl"}
+              <span className="opacity-60">K</span>
+            </span>
+          </button>
+
+          {/* Mobile search icon */}
+          <button
+            type="button"
+            onClick={openSearch}
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-slate-300 hover:text-cyan-300 hover:bg-white/[0.07] transition"
+            aria-label={t("search.aria_label") as string}
+          >
+            <Search className="w-4 h-4" />
+          </button>
+
           <LanguageSwitcher />
           <button
             className="md:hidden p-2 rounded-lg hover:bg-white/[0.06] transition-colors text-slate-200"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { ArrowLeftRight } from "lucide-react";
 
 const categories = {
   en: [
@@ -142,12 +143,18 @@ const categories = {
 export default function UnitConverterPage() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const isArabic = lang === "ar";
   const currentCategories = categories[lang as keyof typeof categories] || categories.en;
-  
+
   const [category, setCategory] = useState(currentCategories[0]);
   const [fromIdx, setFromIdx] = useState(0);
   const [toIdx, setToIdx] = useState(1);
   const [value, setValue] = useState("1");
+
+  const swap = () => {
+    setFromIdx(toIdx);
+    setToIdx(fromIdx);
+  };
 
   const convert = () => {
     const v = parseFloat(value);
@@ -170,41 +177,110 @@ export default function UnitConverterPage() {
   };
 
   return (
-    <div className="min-h-screen w-full pt-10 xs:pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-8 xs:pb-10 sm:pb-12 md:pb-16 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
-      <div className="w-full max-w-2xl mx-auto">
-        <h1 className="text-2xl xs:text-2.5xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-0.5 xs:mb-1 sm:mb-2 text-gradient-primary">{t('physics.converter.page_title')}</h1>
-        <p className="text-muted-foreground text-xs xs:text-sm md:text-base mb-4 xs:mb-5 sm:mb-6 md:mb-8">{t('physics.converter.description')}</p>
+    <div className={`min-h-screen w-full pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 px-3 sm:px-6 md:px-8 lg:px-12 ${isArabic ? "rtl font-arabic" : ""}`}>
+      <div className="w-full max-w-3xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 backdrop-blur-md mb-4">
+            <span className="relative flex w-2 h-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-violet-400 animate-ping opacity-70" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400" />
+            </span>
+            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-violet-200">
+              {isArabic ? "أداة · فيزياء" : "Tool · Physics"}
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-white via-violet-100 to-violet-300">
+            {t("physics.converter.page_title", isArabic ? "محول الوحدات" : "Unit Converter")}
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-slate-400">
+            {t("physics.converter.description", isArabic ? "حول بين وحدات الفيزياء فوراً." : "Convert between physics units instantly.")}
+          </p>
+        </motion.div>
 
-        <div className="flex gap-1 flex-wrap mb-4 xs:mb-5 sm:mb-6">
-          {currentCategories.map((cat) => (
-            <button
-              key={cat.name}
-              onClick={() => { setCategory(cat); setFromIdx(0); setToIdx(1); }}
-              className={`px-2 xs:px-3 py-1.5 xs:py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium border transition ${category.name === cat.name ? "tab-active" : "tab-inactive"}`}
-            >
-              {cat.name}
-            </button>
-          ))}
+        {/* Categories */}
+        <div className="flex gap-2 flex-wrap mb-5">
+          {currentCategories.map((cat) => {
+            const isActive = category.name === cat.name;
+            return (
+              <button
+                key={cat.name}
+                onClick={() => {
+                  setCategory(cat);
+                  setFromIdx(0);
+                  setToIdx(1);
+                }}
+                className={`px-3.5 py-2 rounded-full text-[11px] sm:text-xs font-bold tracking-wide border transition-all ${
+                  isActive
+                    ? "bg-gradient-to-br from-violet-500 to-purple-700 text-white border-violet-400/60 shadow-[0_0_20px_-6px_rgba(139,92,246,0.6)]"
+                    : "bg-white/[0.03] text-slate-300 border-white/10 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                }`}
+              >
+                {cat.name}
+              </button>
+            );
+          })}
         </div>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl sm:rounded-2xl p-4 xs:p-5 sm:p-6 md:p-8 space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6">
-            <div className="space-y-1.5 xs:space-y-2 sm:space-y-2.5">
-              <label className="text-xs xs:text-sm text-muted-foreground">{t('physics.converter.from')}</label>
-              <select value={fromIdx} onChange={(e) => setFromIdx(Number(e.target.value))}
-                className="w-full px-2 xs:px-3 py-2 xs:py-2.5 sm:py-3 rounded-lg bg-muted text-foreground text-xs xs:text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-primary">
-                {category.units.map((u, i) => <option key={u.name} value={i}>{u.name}</option>)}
+        {/* Conversion panel */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          key={category.name}
+          className="rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl p-5 sm:p-7"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-4 sm:gap-5 items-stretch">
+            {/* From */}
+            <div className="space-y-2">
+              <label className="text-[10px] font-mono uppercase tracking-[0.3em] text-violet-300/80">
+                {t("physics.converter.from", isArabic ? "من" : "From")}
+              </label>
+              <select
+                value={fromIdx}
+                onChange={(e) => setFromIdx(Number(e.target.value))}
+                className="w-full px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm focus:outline-none focus:ring-2 focus:ring-violet-400/40 focus:border-violet-400/40 transition"
+              >
+                {category.units.map((u, i) => (
+                  <option key={u.name} value={i} className="bg-slate-900">
+                    {u.name}
+                  </option>
+                ))}
               </select>
-              <input type="number" value={value} onChange={(e) => setValue(e.target.value)}
-                className="w-full px-2 xs:px-3 py-2 xs:py-2.5 sm:py-3 rounded-lg bg-muted text-foreground font-mono text-base xs:text-lg sm:text-xl md:text-2xl focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input
+                type="number"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white font-mono text-xl sm:text-2xl focus:outline-none focus:ring-2 focus:ring-violet-400/40 focus:border-violet-400/40 transition"
+              />
             </div>
-            <div className="space-y-1.5 xs:space-y-2 sm:space-y-2.5">
-              <label className="text-xs xs:text-sm text-muted-foreground">{t('physics.converter.to')}</label>
-              <select value={toIdx} onChange={(e) => setToIdx(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg bg-muted text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary">
-                {category.units.map((u, i) => <option key={u.name} value={i}>{u.name}</option>)}
+
+            {/* Swap button */}
+            <div className="flex items-center justify-center">
+              <button
+                onClick={swap}
+                className="w-11 h-11 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-700/10 border border-violet-400/30 text-violet-200 hover:bg-violet-500/30 hover:text-white transition-all flex items-center justify-center group"
+                title={isArabic ? "تبديل" : "Swap"}
+              >
+                <ArrowLeftRight className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
+              </button>
+            </div>
+
+            {/* To */}
+            <div className="space-y-2">
+              <label className="text-[10px] font-mono uppercase tracking-[0.3em] text-violet-300/80">
+                {t("physics.converter.to", isArabic ? "إلى" : "To")}
+              </label>
+              <select
+                value={toIdx}
+                onChange={(e) => setToIdx(Number(e.target.value))}
+                className="w-full px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm focus:outline-none focus:ring-2 focus:ring-violet-400/40 focus:border-violet-400/40 transition"
+              >
+                {category.units.map((u, i) => (
+                  <option key={u.name} value={i} className="bg-slate-900">
+                    {u.name}
+                  </option>
+                ))}
               </select>
-              <div className="w-full px-3 py-2 rounded-lg bg-primary/10 border border-primary/20 text-primary font-mono text-lg">
+              <div className="w-full px-4 py-3 rounded-xl bg-gradient-to-br from-violet-500/15 to-transparent border border-violet-400/30 text-violet-100 font-mono text-xl sm:text-2xl break-all min-h-[58px] flex items-center">
                 {convert()}
               </div>
             </div>

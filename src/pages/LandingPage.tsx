@@ -13,6 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import PwaLandingInstall from "@/components/pwa/PwaLandingInstall";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Suspense, lazy } from "react";
 
@@ -273,8 +274,8 @@ export default function LandingPage() {
                 <motion.div
                   key={lab.path}
                   variants={cardVariants}
-                  whileHover={{ y: -10 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   <Link to={lab.path} className="block group h-full">
                     <div
@@ -554,6 +555,8 @@ export default function LandingPage() {
               ))}
             </div>
           </motion.div>
+
+          <PwaLandingInstall itemVariants={itemVariants} />
         </motion.div>
       </div>
     </div>

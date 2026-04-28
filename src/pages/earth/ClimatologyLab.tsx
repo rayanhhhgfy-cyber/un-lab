@@ -52,7 +52,12 @@ function GlobalWarmingSim() {
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="glass rounded-[2.5rem] min-h-[350px] lg:min-h-[550px] bg-black/40 border-amber-500/20 relative overflow-hidden flex flex-col items-center justify-center">
         <div className="absolute inset-0">
-          <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+          <Canvas
+            camera={{ position: [0, 0, 10], fov: 45 }}
+            dpr={[1, 1.75]}
+            gl={{ antialias: true, powerPreference: 'high-performance' }}
+            performance={{ min: 0.5 }}
+          >
             <ambientLight intensity={0.4} />
             <pointLight position={[10, 10, 10]} color="#f59e0b" intensity={2} />
             <Suspense fallback={null}>

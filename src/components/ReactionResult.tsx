@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FlaskConical, Flame, AlertTriangle, Thermometer, BookOpen, Sparkles, Zap } from 'lucide-react';
 import { type Reaction } from '@/data/reactions';
+import ShareReactionButton from '@/components/ShareReactionButton';
 
 const ReactionResult = ({ reaction: r }: { reaction: Reaction | null }) => {
   const { t } = useTranslation();
@@ -56,7 +57,7 @@ const ReactionResult = ({ reaction: r }: { reaction: Reaction | null }) => {
           </motion.div>
           
           <motion.div 
-            className="flex flex-wrap gap-2 justify-center"
+            className="flex flex-wrap gap-2 justify-center items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -68,6 +69,7 @@ const ReactionResult = ({ reaction: r }: { reaction: Reaction | null }) => {
             <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold px-4 py-2 rounded-full bg-white/5 text-cyan-300 border border-cyan-500/20">
               {t('chemistry.reaction')}
             </span>
+            <ShareReactionButton reaction={r} />
           </motion.div>
         </motion.div>
 

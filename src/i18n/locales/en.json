@@ -801,5 +801,64 @@
     "errorDescription": "Please try again or check your internet connection",
     "copySuccess": "Response copied to clipboard!",
     "clearChat": "Clear Chat"
+  },
+  "search": {
+    "aria_label": "Open search (Cmd+K)",
+    "placeholder": "Search anything...",
+    "no_results": "No results found",
+    "try_different": "Try a different keyword, formula, or element",
+    "type_for_more": "Type to search 700+ reactions, elements & compounds",
+    "groups": {
+      "recent": "Recent",
+      "actions": "Quick actions",
+      "labs": "Labs & Pages",
+      "tools": "Tools",
+      "reactions": "Reactions",
+      "elements": "Elements",
+      "compounds": "Compounds"
+    },
+    "actions": {
+      "open_chemistry": "Open Chemistry Simulator",
+      "open_chemistry_hint": "Periodic table & 500+ reactions",
+      "try_water": "Try water synthesis",
+      "go_home": "Go to homepage",
+      "go_home_hint": "Back to all labs"
+    },
+    "hints": {
+      "navigate": "navigate",
+      "select": "select",
+      "close": "close"
+    }
+  },
+  "share": {
+    "title": "Share reaction",
+    "button": "Share",
+    "copied": "Link copied!",
+    "copied_desc": "Share it anywhere — opens directly to this reaction.",
+    "copy": "Copy link",
+    "open_link": "Open shared link",
+    "share_text": "Check out this reaction in UN Lab:"
+  },
+  "pwa": {
+    "banner_aria": "Install app",
+    "title": "Install UN Lab",
+    "body": "Add to your home screen for faster access, offline support, and a full-screen lab experience.",
+    "install": "Install",
+    "later": "Not now",
+    "dismiss_aria": "Dismiss",
+    "ios_title": "Add UN Lab to your Home Screen",
+    "ios_body": "Install this app for quick access and a smoother experience on your iPhone or iPad.",
+    "ios_steps": "Tap Share, then “Add to Home Screen”.",
+    "offline_ready": "UN Lab is ready to work offline.",
+    "update_available": "A new version is available.",
+    "reload": "Reload",
+    "landing_title": "Install UN Lab on your device",
+    "landing_kicker": "Install",
+    "landing_subtitle": "Get a home-screen shortcut, faster loading, and labs that work offline once you’ve visited them.",
+    "landing_cta": "Install app",
+    "landing_installing": "Opening installer…",
+    "landing_ios": "On iPhone or iPad: tap Share → “Add to Home Screen”.",
+    "landing_ios_badge": "Use Share → Add to Home Screen",
+    "landing_chrome": "No install prompt yet? Use Chrome or Edge: look for the install icon in the address bar, or the browser menu → “Install this site as an app”."
   }
 }

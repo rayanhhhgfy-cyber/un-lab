@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Search, Copy, Check } from "lucide-react";
+import { Search, Copy, Check, BookOpen } from "lucide-react";
 
 const constants = [
   { name: "Speed of Light", symbol: "c", value: "2.998 × 10⁸", unit: "m/s" },
@@ -57,6 +57,14 @@ const equations = [
   ]},
 ];
 
+const categoryAccent: Record<string, { text: string; chip: string }> = {
+  Mechanics: { text: "text-cyan-300", chip: "bg-cyan-500/10 border-cyan-400/30 text-cyan-200" },
+  "E&M": { text: "text-violet-300", chip: "bg-violet-500/10 border-violet-400/30 text-violet-200" },
+  Thermo: { text: "text-amber-300", chip: "bg-amber-500/10 border-amber-400/30 text-amber-200" },
+  Waves: { text: "text-emerald-300", chip: "bg-emerald-500/10 border-emerald-400/30 text-emerald-200" },
+  Modern: { text: "text-rose-300", chip: "bg-rose-500/10 border-rose-400/30 text-rose-200" },
+};
+
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   const copy = () => {
@@ -65,92 +73,190 @@ function CopyButton({ text }: { text: string }) {
     setTimeout(() => setCopied(false), 1500);
   };
   return (
-    <button onClick={copy} className="text-muted-foreground hover:text-foreground transition">
-      {copied ? <Check className="w-3.5 h-3.5 text-accent" /> : <Copy className="w-3.5 h-3.5" />}
+    <button
+      onClick={copy}
+      className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition"
+      title={copied ? "Copied" : "Copy"}
+    >
+      {copied ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Copy className="w-3.5 h-3.5" />}
     </button>
   );
 }
 
 export default function LibraryPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
   const [search, setSearch] = useState("");
   const [tab, setTab] = useState<"constants" | "equations">("constants");
   const q = search.toLowerCase();
 
   return (
-    <div className="min-h-screen w-full pt-10 xs:pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-8 xs:pb-10 sm:pb-12 md:pb-16 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
-      <div className="w-full max-w-4xl mx-auto">
-        <h1 className="text-2xl xs:text-2.5xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-0.5 xs:mb-1 sm:mb-2 text-gradient-primary">{t('physics.library.page_title')}</h1>
-        <p className="text-muted-foreground text-xs xs:text-sm md:text-base mb-4 xs:mb-5 sm:mb-6 md:mb-8">{t('physics.library.description')}</p>
+    <div className={`min-h-screen w-full pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 px-3 sm:px-6 md:px-8 lg:px-12 ${isArabic ? "rtl font-arabic" : ""}`}>
+      <div className="w-full max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          className="mb-6 sm:mb-8"
+        >
+          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-amber-400/30 bg-amber-500/10 backdrop-blur-md mb-4">
+            <span className="relative flex w-2 h-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-amber-400 animate-ping opacity-70" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+            </span>
+            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-amber-200">
+              {isArabic ? "مكتبة · فيزياء" : "Library · Physics"}
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-white via-amber-100 to-amber-300">
+            {t("physics.library.page_title", isArabic ? "مكتبة الفيزياء" : "Physics Library")}
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-slate-400">
+            {t("physics.library.description", isArabic ? "الثوابت والمعادلات وقوانين الفيزياء الأساسية." : "Constants, equations, and fundamental laws of physics.")}
+          </p>
+        </motion.div>
 
-        <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 xs:gap-3 sm:gap-4 mb-4 xs:mb-5 sm:mb-6">
-          <div className="relative flex-1 w-full">
-            <Search className="absolute left-2 xs:left-3 top-1/2 -translate-y-1/2 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-muted-foreground" />
+        {/* Controls */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5">
+          <div className="relative flex-1">
+            <Search
+              className={`absolute ${isArabic ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500`}
+            />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={t('glossary.search_placeholder')}
-              className="w-full pl-8 xs:pl-10 pr-3 xs:pr-4 py-2 xs:py-2.5 sm:py-3 rounded-lg bg-muted border-none text-xs xs:text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+              placeholder={isArabic ? "بحث..." : "Search..."}
+              className={`w-full ${
+                isArabic ? "pr-10 pl-3" : "pl-10 pr-3"
+              } py-2.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400/40 transition`}
             />
           </div>
-          <div className="flex gap-1 glass rounded-lg p-1 flex-shrink-0">
-            {(["constants", "equations"] as const).map((t) => (
-              <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={`px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-md text-xs xs:text-sm md:text-base font-medium transition ${tab === t ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
-              >
-                {t.charAt(0).toUpperCase() + t.slice(1)}
-              </button>
-            ))}
+          <div className="flex gap-1 p-1 rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+            {(["constants", "equations"] as const).map((tabKey) => {
+              const isActive = tab === tabKey;
+              return (
+                <button
+                  key={tabKey}
+                  onClick={() => setTab(tabKey)}
+                  className={`relative px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all ${
+                    isActive
+                      ? "bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-[0_0_20px_-6px_rgba(251,191,36,0.6)]"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  {isArabic
+                    ? tabKey === "constants"
+                      ? "ثوابت"
+                      : "معادلات"
+                    : tabKey.charAt(0).toUpperCase() + tabKey.slice(1)}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {tab === "constants" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border text-muted-foreground">
-                  <th className="text-left p-3 font-medium">{t('physics.library.name')}</th>
-                  <th className="text-left p-3 font-medium">{t('physics.library.symbol')}</th>
-                  <th className="text-left p-3 font-medium">{t('physics.library.value')}</th>
-                  <th className="text-left p-3 font-medium">{t('physics.library.unit')}</th>
-                  <th className="p-3 w-8"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {constants.filter((c) => c.name.toLowerCase().includes(q) || c.symbol.toLowerCase().includes(q)).map((c) => (
-                  <tr key={c.symbol} className="border-b border-border/50 hover:bg-muted/30 transition">
-                    <td className="p-3 text-foreground">{c.name}</td>
-                    <td className="p-3 font-mono text-primary">{c.symbol}</td>
-                    <td className="p-3 font-mono">{c.value}</td>
-                    <td className="p-3 text-muted-foreground">{c.unit}</td>
-                    <td className="p-3"><CopyButton text={c.value} /></td>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/[0.06] bg-white/[0.02]">
+                    <th className="text-left px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                      {t("physics.library.name", isArabic ? "الاسم" : "Name")}
+                    </th>
+                    <th className="text-left px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                      {t("physics.library.symbol", isArabic ? "الرمز" : "Symbol")}
+                    </th>
+                    <th className="text-left px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                      {t("physics.library.value", isArabic ? "القيمة" : "Value")}
+                    </th>
+                    <th className="text-left px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                      {t("physics.library.unit", isArabic ? "الوحدة" : "Unit")}
+                    </th>
+                    <th className="px-4 py-3 w-12" />
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {constants
+                    .filter(
+                      (c) =>
+                        c.name.toLowerCase().includes(q) ||
+                        c.symbol.toLowerCase().includes(q),
+                    )
+                    .map((c, i) => (
+                      <tr
+                        key={c.symbol}
+                        className={`group border-b border-white/[0.04] last:border-0 hover:bg-white/[0.03] transition ${
+                          i % 2 === 1 ? "bg-white/[0.01]" : ""
+                        }`}
+                      >
+                        <td className="px-4 py-3.5 text-white font-medium">{c.name}</td>
+                        <td className="px-4 py-3.5 font-mono text-amber-300">{c.symbol}</td>
+                        <td className="px-4 py-3.5 font-mono text-slate-200">{c.value}</td>
+                        <td className="px-4 py-3.5 text-slate-400">{c.unit}</td>
+                        <td className="px-4 py-3.5 text-right">
+                          <CopyButton text={c.value} />
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
           </motion.div>
         )}
 
         {tab === "equations" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-            {equations.filter((cat) => cat.items.some((e) => e.name.toLowerCase().includes(q) || e.eq.toLowerCase().includes(q))).map((cat) => (
-              <div key={cat.category} className="glass rounded-xl p-5">
-                <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{cat.category}</h3>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {cat.items.filter((e) => e.name.toLowerCase().includes(q) || e.eq.toLowerCase().includes(q)).map((e) => (
-                    <div key={e.name} className="flex items-center justify-between p-2 rounded-lg bg-muted/30 hover:bg-muted/50 transition">
-                      <div>
-                        <span className="text-xs text-muted-foreground">{e.name}</span>
-                        <div className="font-mono text-sm text-foreground">{e.eq}</div>
-                      </div>
-                      <CopyButton text={e.eq} />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {equations
+              .filter((cat) =>
+                cat.items.some(
+                  (e) =>
+                    e.name.toLowerCase().includes(q) ||
+                    e.eq.toLowerCase().includes(q),
+                ),
+              )
+              .map((cat) => {
+                const acc = categoryAccent[cat.category] ?? categoryAccent.Mechanics;
+                return (
+                  <div
+                    key={cat.category}
+                    className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-white/[0.12] transition-colors"
+                  >
+                    <div className="flex items-center gap-2 mb-3.5">
+                      <BookOpen className={`w-4 h-4 ${acc.text}`} />
+                      <h3 className={`text-xs font-mono uppercase tracking-[0.3em] ${acc.text}`}>
+                        {cat.category}
+                      </h3>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+                    <div className="space-y-1.5">
+                      {cat.items
+                        .filter(
+                          (e) =>
+                            e.name.toLowerCase().includes(q) ||
+                            e.eq.toLowerCase().includes(q),
+                        )
+                        .map((e) => (
+                          <div
+                            key={e.name}
+                            className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.05] hover:border-white/10 transition"
+                          >
+                            <div className="min-w-0">
+                              <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500">
+                                {e.name}
+                              </div>
+                              <div className="font-mono text-sm text-white truncate">{e.eq}</div>
+                            </div>
+                            <CopyButton text={e.eq} />
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                );
+              })}
           </motion.div>
         )}
       </div>

@@ -1,8 +1,8 @@
 // when adding a library
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Atom, FlaskConical, Calculator, Home, ArrowRightLeft, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PeriodicTable from '@/components/PeriodicTable';
 import CompoundSelector from '@/components/CompoundSelector';
@@ -12,11 +12,36 @@ import ReactionResult from '@/components/ReactionResult';
 import ReactionHistory from '@/components/ReactionHistory';
 import ElementInfoPanel from '@/components/ElementInfoPanel';
 import ChemCalculators from '@/components/ChemCalculators';
-import { type Element } from '@/data/elements';
-import { findReaction, type Reaction } from '@/data/reactions';
+import { elements, type Element } from '@/data/elements';
+import { findReaction, preAddedCompounds, type Reaction } from '@/data/reactions';
+
+const parseReactantsParam = (raw: string): string[] => {
+  if (!raw) return [];
+  // Accept "Na,H2O" or "Na+H2O" or "Na H2O"
+  return raw
+    .split(/[,+\s]+/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .slice(0, 2);
+};
+
+const resolveReactant = (
+  raw: string
+): { kind: 'element'; el: Element } | { kind: 'compound'; formula: string } | null => {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const lower = trimmed.toLowerCase();
+  const el = elements.find((e) => e.sym.toLowerCase() === lower);
+  if (el) return { kind: 'element', el };
+  const comp = preAddedCompounds.find((c) => c.formula.toLowerCase() === lower);
+  if (comp) return { kind: 'compound', formula: comp.formula };
+  // Fallback: treat as compound formula even if not in our list (so links still try)
+  return { kind: 'compound', formula: trimmed };
+};
 
 const ChemistryIndex = () => {
   const { t } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedElements, setSelectedElements] = useState<Element[]>([]);
   const [selectedCompounds, setSelectedCompounds] = useState<string[]>([]);
   const [info, setInfo] = useState<Element | null>(null);
@@ -25,8 +50,11 @@ const ChemistryIndex = () => {
   const [history, setHistory] = useState<Reaction[]>([]);
   const [noMatch, setNoMatch] = useState(false);
   const [tab, setTab] = useState<'sim' | 'calc'>('sim');
+  const lastAppliedUrlRef = useRef<string>('');
+  const hasUserInteractedRef = useRef(false);
 
   const handleElementClick = useCallback((el: Element) => {
+    hasUserInteractedRef.current = true;
     setInfo(el);
     setSelectedElements(prev => {
       if (prev.find(e => e.sym === el.sym)) return prev.filter(e => e.sym !== el.sym);
@@ -38,6 +66,7 @@ const ChemistryIndex = () => {
   }, []);
 
   const handleCompoundClick = useCallback((formula: string) => {
+    hasUserInteractedRef.current = true;
     setSelectedCompounds(prev => {
       if (prev.includes(formula)) return prev.filter(f => f !== formula);
       if (prev.length >= 2) return prev;
@@ -59,11 +88,130 @@ const ChemistryIndex = () => {
 
     setReacting(true);
     setReaction(r);
-    // Delay adding to history to match the animation timer
     setTimeout(() => {
       setReacting(false);
       setHistory(p => [r, ...p.slice(0, 29)]);
-    }, 4000);
+    }, 8000);
+  }, [selectedElements, selectedCompounds]);
+
+  useEffect(() => {
+    const rRaw =
+      searchParams.get('r') ||
+      searchParams.get('reaction') ||
+      searchParams.get('reactants');
+    const auto = searchParams.get('auto');
+    const focusSym = searchParams.get('focus');
+    const compoundParam = searchParams.get('compound');
+
+    const signature = `${rRaw || ''}|${focusSym || ''}|${compoundParam || ''}|${auto || ''}`;
+    if (signature === lastAppliedUrlRef.current) return;
+    if (!rRaw && !focusSym && !compoundParam) {
+      lastAppliedUrlRef.current = signature;
+      return;
+    }
+
+    const nextElements: Element[] = [];
+    const nextCompounds: string[] = [];
+
+    if (rRaw) {
+      const tokens = parseReactantsParam(rRaw);
+      for (const tok of tokens) {
+        const resolved = resolveReactant(tok);
+        if (!resolved) continue;
+        if (resolved.kind === 'element') {
+          if (
+            !nextElements.find((e) => e.sym === resolved.el.sym) &&
+            nextElements.length < 2
+          ) {
+            nextElements.push(resolved.el);
+          }
+        } else if (
+          !nextCompounds.includes(resolved.formula) &&
+          nextCompounds.length < 2
+        ) {
+          nextCompounds.push(resolved.formula);
+        }
+      }
+    }
+
+    if (focusSym) {
+      const el = elements.find((e) => e.sym.toLowerCase() === focusSym.toLowerCase());
+      if (el) {
+        setInfo(el);
+        if (
+          !nextElements.find((e) => e.sym === el.sym) &&
+          nextElements.length + nextCompounds.length < 2
+        ) {
+          nextElements.push(el);
+        }
+      }
+    }
+
+    if (compoundParam) {
+      const comp = preAddedCompounds.find(
+        (c) => c.formula.toLowerCase() === compoundParam.toLowerCase()
+      );
+      const formula = comp?.formula || compoundParam;
+      if (
+        !nextCompounds.includes(formula) &&
+        nextElements.length + nextCompounds.length < 2
+      ) {
+        nextCompounds.push(formula);
+      }
+    }
+
+    lastAppliedUrlRef.current = signature;
+    setSelectedElements(nextElements);
+    setSelectedCompounds(nextCompounds);
+    setTab('sim');
+
+    const shouldAuto =
+      auto === '1' ||
+      auto === 'true' ||
+      (!!rRaw && nextElements.length + nextCompounds.length >= 2);
+
+    if (shouldAuto && nextElements.length + nextCompounds.length >= 2) {
+      const reactants = [...nextElements.map((e) => e.sym), ...nextCompounds];
+      const r = findReaction(reactants);
+      setTimeout(() => {
+        if (r) {
+          setReaction(r);
+          setReacting(true);
+          setNoMatch(false);
+          setTimeout(() => {
+            setReacting(false);
+            setHistory((p) => [r, ...p.slice(0, 29)]);
+          }, 8000);
+        } else {
+          setNoMatch(true);
+        }
+      }, 350);
+    }
+  }, [searchParams]);
+
+  // Keep URL in sync with user-driven selection (replace, no history pollution).
+  useEffect(() => {
+    if (!hasUserInteractedRef.current) return;
+    const reactants = [
+      ...selectedElements.map((e) => e.sym),
+      ...selectedCompounds,
+    ];
+    const params = new URLSearchParams(searchParams);
+    if (reactants.length > 0) {
+      params.set('r', reactants.join(','));
+    } else {
+      params.delete('r');
+    }
+    params.delete('reaction');
+    params.delete('reactants');
+    params.delete('auto');
+    const next = params.toString();
+    const current = searchParams.toString();
+    if (next !== current) {
+      lastAppliedUrlRef.current = `${params.get('r') || ''}|${params.get('focus') || ''}|${params.get('compound') || ''}|`;
+      setSearchParams(params, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedElements, selectedCompounds]);
 
   return (
@@ -241,8 +389,8 @@ const ChemistryIndex = () => {
                   <ReactionChamber
                     elements={selectedElements}
                     compounds={selectedCompounds}
-                    onRemoveElement={sym => { setSelectedElements(p => p.filter(e => e.sym !== sym)); setNoMatch(false); setReaction(null); }}
-                    onRemoveCompound={formula => { setSelectedCompounds(p => p.filter(f => f !== formula)); setNoMatch(false); setReaction(null); }}
+                    onRemoveElement={sym => { hasUserInteractedRef.current = true; setSelectedElements(p => p.filter(e => e.sym !== sym)); setNoMatch(false); setReaction(null); }}
+                    onRemoveCompound={formula => { hasUserInteractedRef.current = true; setSelectedCompounds(p => p.filter(f => f !== formula)); setNoMatch(false); setReaction(null); }}
                     onReact={handleReact}
                     reacting={reacting}
                   />

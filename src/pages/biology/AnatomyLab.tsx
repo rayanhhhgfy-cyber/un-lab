@@ -34,7 +34,7 @@ function CardioSim() {
   return (
     <div className="grid lg:grid-cols-[1fr_340px] gap-8">
       <div className="glass rounded-[2.5rem] min-h-[350px] lg:min-h-[550px] bg-black/40 border-rose-500/20 relative overflow-hidden">
-        <div className="absolute inset-0"><Canvas camera={{ position: [0, 0, 10], fov: 45 }}><ambientLight intensity={0.4} /><pointLight position={[10, 10, 10]} color="#f43f5e" intensity={2} /><Suspense fallback={null}><Float speed={2} rotationIntensity={0.4}><Heart3D bpm={bpm} /></Float><Stars count={3000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /></Canvas></div>
+        <div className="absolute inset-0"><Canvas camera={{ position: [0, 0, 10], fov: 45 }} dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }} performance={{ min: 0.5 }}><ambientLight intensity={0.4} /><pointLight position={[10, 10, 10]} color="#f43f5e" intensity={2} /><Suspense fallback={null}><Float speed={2} rotationIntensity={0.4}><Heart3D bpm={bpm} /></Float><Stars count={3000} fade /></Suspense><OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /></Canvas></div>
         {/* ECG Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
           <svg viewBox="0 0 400 100" className="w-full h-20"><motion.polyline points={ecgPoints} fill="none" stroke="#f43f5e" strokeWidth="2" animate={{ x: [-400, 0] }} transition={{ duration: 60 / bpm * 3, repeat: Infinity, ease: "linear" }} /></svg>

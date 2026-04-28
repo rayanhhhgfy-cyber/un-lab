@@ -75,7 +75,12 @@ export default function HeroScene() {
   return (
     <div className="absolute inset-0 -z-10">
       <WebGLErrorBoundary fallback={<CSSFallbackHero />}>
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 50 }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, powerPreference: 'high-performance' }}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={0.2} />
           <pointLight position={[5, 5, 5]} intensity={0.8} color="#1e90ff" />
           <Stars radius={100} depth={50} count={2000} factor={3} fade speed={1} />
