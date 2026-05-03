@@ -1,0 +1,925 @@
+{
+  "nav": {
+    "home": "Home",
+    "chemistry": "Chemistry",
+    "physics": "Physics",
+    "mathematics": "Mathematics",
+    "biology": "Biology",
+    "earth_science": "Earth Science",
+    "help": "Help",
+    "mechanics": "Mechanics",
+    "electromagnetism": "E&M",
+    "thermodynamics": "Thermo",
+    "waves": "Waves",
+    "modern": "Modern",
+    "library": "Library",
+    "tools": "Resources",
+    "challenges": "Challenges",
+    "tools_menu": {
+      "unitConverter": "Unit Converter",
+      "formulaCalc": "Formula Calc",
+"glossary":"Glossary"
+    }
+  },
+  "help": {
+    "header": {
+      "badge": "Support Center",
+      "title": "Help & Support",
+      "subtitle": "Everything you need to navigate and use UN-Labs effectively"
+    },
+    "nav": {
+      "title": "How to Navigate",
+      "step1": {
+        "title": "Choose a Lab",
+        "desc": "Select from Physics, Chemistry, Biology, Mathematics, or Earth Science from the main menu"
+      },
+      "step2": {
+        "title": "Explore Topics",
+        "desc": "Browse through different topics and experiments within each lab"
+      },
+      "step3": {
+        "title": "Interactive Learning",
+        "desc": "Use simulations, calculators, and tools to enhance your understanding"
+      },
+      "step4": {
+        "title": "Track Progress",
+        "desc": "Save your work and revisit anytime using the workspace feature"
+      }
+    },
+    "contact": {
+      "title": "Contact Support Team",
+      "phone": {
+        "title": "Phone 1",
+        "desc": "Available during school hours"
+      },
+      "phone2": {
+        "title": "Phone 2",
+        "desc": "Alternative contact number"
+      },
+      "email": {
+        "title": "Email",
+        "desc": "Send us your questions anytime"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "desc": "Chat with our AI assistant"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How do I switch between languages?",
+      "a1": "Click the language icon in the top right corner of the navigation bar to switch between English and Arabic.",
+      "q2": "Can I save my progress?",
+      "a2": "Yes! Use the workspace feature in the Mathematics lab to save your calculations and notes for later.",
+      "q3": "How do I use the calculators?",
+      "a3": "Navigate to the Tools section in any lab, select your desired calculator, enter your values, and click Calculate.",
+      "q4": "Is this website free to use?",
+      "a4": "Yes, UN-Labs is completely free for all students and educators. No registration required.",
+      "q5": "What if I encounter a bug?",
+      "a5": "Please contact our support team using one of the methods above. We appreciate your feedback!"
+    },
+    "development_notice": "This website is under active development — new features added daily!"
+  },
+  "footer": {
+    "madeBy": "Made by rayyan mohammed - aws altammimi -taha ababneh",
+    "schoolName": "King Hussain Bin Talal Secondary School for Boys Students",
+    "tagline": "Science through Innovation and Excellence",
+    "supervisor": "Under the supervision of teacher: Mohsen Ababneh",
+    "empowering": "Empowering Future Scientists",
+    "copyright": "© {{year}} All Rights Reserved"
+  },
+  "landing": {
+    "title": "Alchemy Lab Online",
+    "subtitle": "Interactive Science Learning Platform",
+    "description": "Explore chemistry and physics through interactive simulations and experiments",
+    "getStarted": "Get Started",
+    "chemistry": "Chemistry",
+    "physics": "Physics",
+    "exploreChemistry": "Explore interactive chemistry reactions and compounds",
+    "explorePhysics": "Explore interactive physics simulations",
+    "features": {
+      "title": "Core Features",
+      "feature1": {
+        "icon": "⚡",
+        "title": "Real-time 3D",
+        "description": "Interactive visualizations that bring science to life"
+      },
+      "feature2": {
+        "icon": "🎓",
+        "title": "Education First",
+        "description": "Designed to enhance learning with practical tools"
+      },
+      "feature3": {
+        "icon": "🚀",
+        "title": "Cutting-edge",
+        "description": "Latest technologies for immersive experiences"
+      }
+    },
+    "hero": {
+      "title": "Explore Science",
+      "subtitle": "Interactive simulations and experiments for Physics and Chemistry"
+    },
+    "physics_card": {
+      "title": "Physics Labs",
+      "description": "20+ interactive experiments exploring mechanics, waves, electromagnetism, and modern physics",
+      "tags": ["Simulations", "3D Models", "Formulas"],
+      "button": "Enter Physics Lab"
+    },
+    "chemistry_card": {
+      "title": "Chemistry Labs",
+      "description": "15+ interactive reactions with visual simulations",
+      "tags": ["Reactions", "Elements", "Compounds"],
+      "button": "Enter Chemistry Lab"
+    },
+    "vr_card": {
+      "title": "VR Labs",
+      "description": "Experience science in virtual reality - immersive 3D environments for next-generation learning",
+      "tags": ["VR Experience", "3D Immersion", "Future Tech"],
+      "button": "Enter VR Lab"
+    },
+    "biology_card": {
+      "title": "Biology Labs",
+      "description": "Explore the science of life - from cells and DNA to ecosystems and human anatomy",
+      "tags": ["Cell Biology", "Genetics", "Anatomy"],
+      "button": "Enter Biology Lab"
+    },
+    "earth_card": {
+      "title": "Earth Science",
+      "description": "Discover the forces shaping our planet - geology, weather, volcanoes, and plate tectonics",
+      "tags": ["Geology", "Weather", "Tectonics"],
+      "button": "Enter Earth Lab"
+    }
+  },
+  "vr_labs": {
+    "page_title": "VR Labs",
+    "coming_soon": "Coming Soon",
+    "coming_soon_ar": "قريباً جداً",
+    "description": "We're building an immersive virtual reality learning experience that will revolutionize science education. Step into alternate dimensions and explore concepts in ways you've never imagined.",
+    "description_ar": "نحن نبني تجربة تعلم في الواقع الافتراضي غامرة ستحول تعليم العلوم. ادخل إلى أبعاد بديلة واستكشف المفاهيم بطرق لم تخيل بها من قبل.",
+    "features": {
+      "immersive": {
+        "title": "Immersive",
+        "title_ar": "غامر",
+        "desc": "Step into the science",
+        "desc_ar": "ادخل إلى العلم"
+      },
+      "innovative": {
+        "title": "Innovative",
+        "title_ar": "مبتكر",
+        "desc": "Next-gen learning",
+        "desc_ar": "تعليم من الجيل القادم"
+      },
+      "interactive": {
+        "title": "Interactive",
+        "title_ar": "تفاعلي",
+        "desc": "Hands-on experiences",
+        "desc_ar": "تجارب عملية"
+      }
+    },
+    "cta": {
+      "explore": "Explore Current Labs",
+      "explore_ar": "استكشف المعامل الحالية",
+      "back": "Back to Home",
+      "back_ar": "العودة للرئيسية"
+    }
+  },
+  "physics": {
+    "title": "UN LABS",
+    "explore_subtitle": "Explore the universe through interactive simulations.",
+    "stats": "20+ experiments · 14 formulas · 42 glossary terms · 6 unit categories",
+    "start_exploring": "Start Exploring",
+    "library": {
+      "page_title": "Physics Library",
+      "description": "Constants, equations, and fundamental laws of physics.",
+      "name": "Name",
+      "symbol": "Symbol",
+      "value": "Value",
+      "unit": "Unit"
+    },
+    "converter": {
+      "page_title": "Unit Converter",
+      "description": "Convert between physics units instantly.",
+      "from": "From",
+      "to": "To"
+    },
+    "calculator": {
+      "page_title": "Formula Calculator",
+      "description": "Compute physics quantities from fundamental equations.",
+      "result": "Result"
+    },
+    "glossary": {
+      "page_title": "Physics Glossary",
+      "description": "Key physics terms and definitions",
+      "no_match": "No matching terms found."
+    },
+    "challenges": {
+      "page_title": "Challenges",
+      "description": "Test your physics knowledge with interactive problems.",
+      "show_hint": "Show Hint",
+      "incorrect": "Not quite. Try again!"
+    },
+    "branches": {
+      "classical_mechanics": "Classical Mechanics",
+      "classical_mechanics_desc": "6 experiments: projectile, pendulum, spring, collisions, circular motion, inclined plane",
+      "electricity_magnetism": "Electricity & Magnetism",
+      "electricity_magnetism_desc": "Coulomb's law, Ohm's law circuits, magnetic field visualization",
+      "thermodynamics": "Thermodynamics",
+      "thermodynamics_desc": "Ideal gas simulation, heat transfer & conduction",
+      "waves_optics": "Waves & Optics",
+      "waves_optics_desc": "Transverse waves, standing waves, Doppler effect, double slit diffraction",
+      "modern_physics": "Modern Physics",
+      "modern_physics_desc": "Quantum atom, photoelectric effect, blackbody radiation, nuclear decay",
+      "physics_library": "Physics Library",
+      "physics_library_desc": "14 constants, 24 equations across all branches",
+      "formula_calculator": "Formula Calculator",
+      "formula_calculator_desc": "14 physics formulas with instant computation",
+      "unit_converter": "Unit Converter",
+      "unit_converter_desc": "6 categories: length, mass, energy, temperature, pressure, force",
+      "physics_glossary": "Physics Glossary",
+      "physics_glossary_desc": "42 key terms with definitions across all branches",
+      "challenges": "Challenges",
+      "challenges_desc": "Physics problems with hints, answer checking & scoring"
+    },
+    "mechanics": "Mechanics",
+    "waves": "Waves",
+    "electricity": "Electricity",
+    "magnetism": "Magnetism",
+    "thermodynamics": "Thermodynamics",
+    "modernPhysics": "Modern Physics",
+    "simulations": "Simulations",
+    "experiments": "Experiments",
+    "tools": "Tools",
+    "parameters": "Parameters",
+    "initial": "Initial",
+    "final": "Final",
+    "velocity": "Velocity",
+    "acceleration": "Acceleration",
+    "mass": "Mass",
+    "force": "Force",
+    "energy": "Energy",
+    "time": "Time",
+    "distance": "Distance",
+    "start": "Start",
+    "stop": "Stop",
+    "reset": "Reset",
+    "pause": "Pause",
+    "resume": "Resume",
+    "page_title": "Physics Lab",
+    "navigation": {
+      "mechanics": "Mechanics",
+      "e_m": "E&M",
+      "thermo": "Thermo",
+      "waves": "Waves",
+      "modern": "Modern",
+      "library": "Library",
+      "challenges": "Challenges",
+      "converter": "Unit Converter",
+      "calculator": "Formula Calc",
+      "glossary": "Glossary",
+      "optics": "Optics"
+    },
+    "mechanics_page": {
+      "title": "Classical Mechanics",
+      "description": "6 interactive experiments covering motion, forces, and energy. Perfect for understanding how objects move and interact in our world!",
+      "tabs": {
+        "projectile": "Projectile Motion",
+        "pendulum": "Pendulum",
+        "spring": "Spring / SHM",
+        "collision": "Collisions",
+        "circular": "Circular Motion",
+        "incline": "Inclined Plane"
+      },
+      "descriptions": {
+        "projectile": "Projectile motion is what happens when you throw something at an angle into the air - like tossing a basketball, kicking a soccer ball, or firing a cannon. Gravity is the key force pulling it down, creating a curved path called a trajectory. When you launch something straight up, it goes up, stops for a moment at the highest point, then falls back down. But when you launch at an angle, the horizontal speed stays constant (ignoring air resistance) while the vertical speed changes due to gravity. The horizontal and vertical motions are completely independent of each other - this is one of the most important ideas in physics! The range (how far it goes) depends on the launch angle and speed. In a vacuum (no air), 45 degrees gives the maximum range because it perfectly balances horizontal and vertical distances. On Earth, we have air resistance, so optimal angles are usually lower - around 35-40 degrees for sports like baseball.\n\nThe equations we use come from breaking the launch velocity into horizontal and vertical parts. The horizontal velocity stays constant (Vx = V × cos(angle)), while the vertical velocity changes due to gravity (Vy = V × sin(angle) - g×t). The total time in the air is (2 × Vy_initial) / g, since it goes up until vertical velocity becomes zero, then falls back down taking the same time. The maximum height is when vertical velocity becomes zero, calculated as (Vy_initial²) / (2g). The range is total horizontal distance: Vx × total time. These formulas let engineers calculate everything from where a rocket will land to how to aim a water hose to reach the farthest point!",
+        "pendulum": "A pendulum is simply a weight hanging from a string that can swing back and forth. You've seen them in grandfather clocks, on playground swings, and in decorative lamps. Galileo discovered something amazing about pendulums in 1583: no matter how heavy the weight is or how high you start it from, the time it takes to complete one full swing (back and forth) depends ONLY on the length of the string and gravity - NOT on the weight or how far you pull it! This seems almost magical, but it comes from a deep physics principle. When you pull a pendulum to the side, it gains gravitational potential energy (stored energy due to height). As it swings down, this converts to kinetic energy (motion energy). At the bottom, it has maximum speed. Then it swings up the other side, converting kinetic back to potential. This continuous exchange between potential and kinetic energy is called Simple Harmonic Motion.\n\nThe period (time for one swing) is given by T = 2π√(L/g), where L is the length and g is gravity. On Earth, g = 9.81 m/s². A 1-meter pendulum takes about 2 seconds for a full swing - that's why grandfather clocks use a pendulum close to 1 meter long. If you took the same pendulum to the Moon, it would swing much slower (taking about 5 seconds) because the Moon's gravity is weaker. Scientists actually used pendulums to discover that Earth isn't a perfect sphere - it bulges at the equator! The pendulum is also the foundation for seismographs (earthquake detectors) and helps us understand molecular vibrations.",
+        "spring": "Springs are everywhere in our world - in car suspensions, trampolines, pens, keyboards, and even in the atoms that make up everything around us. When you compress or stretch a spring, it pushes back with a force proportional to how far you moved it - this is Hooke's Law: F = -kx. The 'k' is the spring constant (how stiff the spring is), and the 'x' is how far you stretched it. The negative sign means the force is opposite to the direction you pushed - it always wants to return to its original length. When you let go of a stretched spring, it oscillates (bounces back and forth) around the equilibrium point. This motion is called Simple Harmonic Motion (SHM), and it's one of the most important patterns in physics.\n\nThe spring stores energy when stretched or compressed - this is called elastic potential energy (½kx²). When you let go, this converts to kinetic energy of the moving mass. The frequency of oscillation depends only on the spring constant and mass: f = (1/2π) × √(k/m). Heavier masses oscillate slower, while stiffer springs make it oscillate faster. This is why car designers must carefully choose spring stiffness - too soft and the car bounces forever after hitting a bump, too stiff and every tiny bump shakes the passengers. The same principles apply to atoms in crystals, where they vibrate like tiny springs. This is why hot objects expand - the atoms vibrate more vigorously and need more space!",
+        "collision": "Collisions happen everywhere - car crashes, billiard balls hitting each other, atoms in gases, and even when you catch a ball. In all collisions, two fundamental quantities are always conserved (can never be created or destroyed): momentum and energy. Momentum is mass times velocity (p = mv), and it tells us how much 'oomph' a moving object has. Energy comes in many forms, but in collisions we care about kinetic energy (½mv²). There are two main types of collisions: elastic and inelastic. In elastic collisions, both momentum AND kinetic energy are conserved - like when billiard balls hit and bounce off each other perfectly. In inelastic collisions, momentum is still conserved but kinetic energy is not - some energy turns into heat, sound, or deformation. In a completely inelastic collision, objects stick together after colliding, like clay blobs hitting each other.\n\nThink about a car crash: when cars collide inelastically, they crumple (deform) and don't bounce back. The crumple zones are designed specifically to absorb kinetic energy, protecting the passengers. Airbags work by increasing the time of collision - remember F = ma, and also F = Δp/Δt. By increasing the time (Δt) over which momentum changes, the force (F) decreases! That's why you should extend your arms when catching something - it reduces the force. In particle physics, scientists study collisions at huge accelerators like the Large Hadron Collider to discover new particles. The conservation laws are absolute - they never break, making them incredibly powerful tools for understanding the universe!",
+        "circular": "Circular motion is motion in a circle - like a merry-go-round, a car turning, planets orbiting the Sun, or electrons orbiting an atom's nucleus. For an object to move in a circle, there must be a force pointing toward the center called the centripetal force (which means 'center-seeking'). This force constantly pulls the object inward, changing its direction. Without this force, the object would fly off in a straight line (Newton's First Law). The centripetal force needed depends on the mass, speed, and radius: F = mv²/r. Faster objects need more force to stay in circular motion, and tighter circles (smaller radius) also need more force - this is why cars must slow down for sharp turns.\n\nThe acceleration toward the center is a = v²/r, and this happens even at constant speed! The direction constantly changes, so there's always acceleration. This explains why water stays in a bucket when you swing it in a circle overhead - the 'centrifugal effect' (not a real force, but the result of inertia) seems to push it outward, but really the bucket's acceleration keeps the water in. NASA uses gravitational slingshots (gravity assists) where spacecraft borrow momentum from planets to speed up without using fuel. This is circular motion combined with gravity! The centripetal force can come from gravity, tension, friction, or magnetic forces - whichever force provides it determines what kind of circular motion occurs.",
+        "incline": "An inclined plane is simply a ramp or slope - think of a wheelchair ramp, a slide, or a mountain road. Ramps are a type of simple machine that make it easier to move objects to a higher elevation. Instead of lifting something straight up (which requires lots of force but short distance), you can push it up a ramp (less force but longer distance). The trade-off is that you must move a greater distance. The mechanical advantage of a ramp is the length of the ramp divided by its height. A long, gentle ramp requires less force but takes more time and distance than a steep, short ramp. This is exactly how the ancient Egyptians built the pyramids - they pushed massive stone blocks up long ramps instead of trying to lift them straight up!\n\nThe physics involves breaking forces into components parallel and perpendicular to the slope. Gravity pulls straight down, but we analyze two components: one pulling down the slope (causing acceleration) and one pressing into the slope (creating normal force). Friction opposes motion up or down the slope. The acceleration down an incline (ignoring friction) is a = g × sin(θ), where θ is the angle. Steeper angles give greater acceleration. Friction depends on the normal force (F_friction = μ × F_normal) and always opposes motion. This explains why it's harder to slide heavy objects - the normal force increases, increasing friction. Understanding inclines helps engineers design everything from staircases to highway on-ramps to playground slides!"
+      },
+      "projectile": {
+        "title": "Projectile Motion",
+        "description": "See how objects fly through the air when thrown at an angle! Perfect for understanding sports like basketball or cannonball trajectories.",
+        "controls": "Controls",
+        "results": "Results",
+        "velocity": "Velocity",
+        "angle": "Angle",
+        "gravity": "Gravity",
+        "launch": "Launch",
+        "reset": "Reset",
+        "maxHeight": "Max Height",
+        "range": "Range"
+      },
+      "pendulum": {
+        "title": "Pendulum",
+        "description": "Watch a swinging pendulum! This simple motion helps us understand timekeeping and energy transfer. Galileo discovered its secrets!"
+      },
+      "spring": {
+        "title": "Spring / Simple Harmonic Motion",
+        "description": "See how springs bounce back and forth! This is called Simple Harmonic Motion (SHM). Springs are in clocks, cars, and trampolines!"
+      },
+      "collision": {
+        "title": "Collisions",
+        "description": "Watch what happens when objects crash into each other! Learn about momentum and energy conservation - super important for car safety!"
+      },
+      "circular": {
+        "title": "Circular Motion",
+        "description": "See why things spin in circles! From planets orbiting the Sun to rides at the amusement park, circular motion is everywhere!"
+      },
+      "incline": {
+        "title": "Inclined Plane",
+        "description": "Watch objects slide down ramps! This helps us understand how friction and gravity work together on slopes."
+      }
+    },
+    "electromagnetism_page": {
+      "title": "Electromagnetism",
+      "description": "Explore electricity and magnetism - the forces that power our entire modern world!",
+      "tabs": {
+        "circuits": "Circuits",
+        "fields": "Electric Fields",
+        "magnetic": "Magnetic Fields",
+        "induction": "Induction"
+      },
+      "descriptions": {
+        "circuits": "Electric circuits are like plumbing for electrons - they provide a path for tiny particles called electrons to flow from a power source (like a battery) through wires to devices (like lightbulbs) and back. The flow of electrons is called current (measured in Amperes or Amps), the 'push' is voltage (measured in Volts), and the difficulty electrons face flowing is resistance (measured in Ohms). The relationship between these three is Ohm's Law: V = I × R. Think of it like water in pipes - voltage is the water pressure, current is how much water flows, and resistance is narrow or wide pipes. Increase voltage (more pressure), and more water flows. Make the pipe narrower (more resistance), and less water flows. This simple relationship is the foundation of ALL electronics - from the simplest flashlight to the most complex supercomputer!",
+        "fields": "Electric fields are invisible force fields that surround all electric charges. Just like gravity pulls objects toward Earth, electric charges pull or push other charges through this invisible field. Positive charges create fields that point outward (like spreading fingers), while negative charges create fields that point inward (like catching fingers). The strength of the field gets weaker the further you go - it's an 'inverse square' relationship, meaning if you double the distance, the force becomes 4 times weaker; triple the distance, it becomes 9 times weaker. This is called Coulomb's Law, and it's essentially the same as Newton's gravitational law but for electric charges instead of masses. This is why atoms stay together - the positive nucleus attracts negative electrons! It's also why lightning strikes: when clouds build up massive charges, they create such strong fields that electrons rip through the air as lightning.",
+        "magnetic": "Magnets create invisible magnetic fields that flow from their north pole to their south pole. These fields aren't just for refrigerator magnets - they're everywhere! The Earth itself is a giant magnet, with its magnetic field protecting us from harmful solar radiation (solar wind). This is why compasses point north - the needle is a small magnet that aligns with Earth's magnetic field. Magnetic fields are created by moving electric charges - this is why electric currents create magnetic fields (electromagnets). This relationship is super important: electricity creates magnetism, and magnetism can create electricity! This discovery (electromagnetic induction) by Michael Faraday is what allows power plants to generate electricity and what makes motors work. Magnets can attract certain metals (like iron, nickel, cobalt) because the electrons in these atoms align in a way that creates a net magnetic field. Some materials like copper don't have this property, which is why magnets don't stick to copper pipes!",
+        "induction": "Electromagnetic induction is one of the most important discoveries in physics - it's how we generate almost all our electricity! The basic idea is simple: moving a magnet through a coil of wire creates an electric current. The faster you move the magnet, the stronger the current. This is called Faraday's Law. Think of it like shaking a magnet near the wire 'teaches' the electrons to move. This is exactly how power plants work - they use turbines (spinning wheels) to spin magnets inside coils of wire. The turbines can be turned by steam (from burning coal, oil, or gas, or from nuclear reactions), by wind, or by falling water (hydroelectric). When you spin a magnet inside wire, electrons flow! This is also how wireless phone chargers work - they use induction to transfer energy without wires. Your phone has a coil, and the charger has a magnet that spins, creating current in your phone's coil. It's the same principle as generators and transformers that move electricity across countries!",
+        "coulomb": "Coulomb's Law is the fundamental rule that governs how electric charges interact. It states that the force between two charges depends on three things: how big the charges are, how far apart they are, and whether they attract or repel. The formula is F = k × (q1 × q2) / r², where k is a huge number (9 billion!), q1 and q2 are the charges, and r is the distance between them. The '²' (squared) part means it's an inverse square law - double the distance and the force becomes 4 times weaker. If charges have the same sign (+ and +, or - and -), they repel (push apart). If they have opposite signs (+ and -), they attract (pull together). This law explains EVERYTHING from why your hair stands up when you rub a balloon on it, to how atoms hold together, to why lightning strikes. Inside atoms, positive protons in the nucleus attract negative electrons - without this electric force, atoms wouldn't exist! The constant 'k' is incredibly large because the electric force is enormously strong - even though electrons are tiny, the force between them is astronomical compared to gravity between everyday objects.",
+        "ohm": "Ohm's Law is one of the most important rules in electricity. It describes the relationship between voltage (V), current (I), and resistance (R). The formula is simply: Voltage = Current × Resistance, or V = I × R. Think of it like water flowing through pipes - voltage is like water pressure pushing the water, current is how much water actually flows through the pipe, and resistance is how narrow or wide the pipe is. If you increase the voltage (more pressure), more current flows. If you increase the resistance (narrower pipe), less current flows. This law is the foundation of all electrical circuits - from the simplest flashlight to the most complex computer. If you know any two of these values, you can calculate the third! This is incredibly useful for engineers designing any electrical system."
+      },
+      "circuits": {
+        "title": "Electric Circuits",
+        "description": "Build and test electric circuits! Learn how electricity flows through wires to power everything from your phone to your house."
+      },
+      "fields": {
+        "title": "Electric Fields",
+        "description": "See the invisible forces between electric charges! This is why static electricity makes your hair stand up."
+      },
+      "magnetic": {
+        "title": "Magnetic Fields",
+        "description": "Explore the power of magnets! Earth itself is a giant magnet - that's why compasses point north!"
+      },
+      "induction": {
+        "title": "Electromagnetic Induction",
+        "description": "Discover how moving magnets create electricity! This is how power plants generate the electricity in your home."
+      }
+    },
+    "thermodynamics_page": {
+      "title": "Thermodynamics",
+      "description": "Learn about heat, temperature, and energy transfer - the science behind engines, refrigerators, and even the weather!",
+      "tabs": {
+        "heat": "Heat Transfer",
+        "gas": "Gas Laws",
+        "engines": "Heat Engines",
+        "entropy": "Entropy"
+      },
+      "descriptions": {
+        "heat": "Heat transfer is the movement of thermal energy (heat) from one place to another. There are three main ways heat travels: conduction, convection, and radiation. Conduction happens when heat moves through solid materials - like when you touch a hot pan and your hand gets hot. The heat energy passes from molecule to molecule as they vibrate. Metals are great conductors (that's why pots are metal), while materials like wood and air are poor conductors (insulators). This is why winter gloves have air pockets - to prevent conduction! Convection is heat transfer through fluids (liquids and gases) when they move in currents. When you boil water, hot water rises and cool water sinks - this creates convection currents that distribute heat throughout the pot. This is also how our atmosphere works - the Sun heats the ground, which heats the air near it, and that warm air rises, creating winds. Radiation is heat transfer through electromagnetic waves - like the warmth you feel from the Sun or a campfire. Unlike conduction and convection, radiation doesn't need any material to travel through - it can cross the vacuum of space! That's how the Sun's heat reaches Earth. Understanding heat transfer is why we have保温杯 (insulated cups), why houses have insulation in walls, why black cars get hotter in the sun than white cars, and why space blankets (those shiny emergency blankets) work - they reflect radiated heat back to your body.",
+        "gas": "The Ideal Gas Law connects four properties of gases: pressure (P), volume (V), amount of gas (n, in moles), and temperature (T, in Kelvin). The equation is PV = nRT, where R is a constant. This law describes how gases behave under different conditions. Pressure increases when you compress a gas (smaller volume) or heat it up. Volume expands when you heat a gas (at constant pressure). This is why hot air balloons rise - heating the air inside makes it expand, pushing some air out, making the balloon lighter than the surrounding air. This is also why scuba divers must ascend slowly - as they rise, the pressure decreases, and any air in their lungs expands. If they rise too fast, the air can damage their lungs! The kinetic theory of gases explains this: gases are made of tiny particles moving randomly and bouncing off walls. Temperature is a measure of how fast these particles move on average. When particles hit the walls, they create pressure. More particles (more moles) or faster particles (higher temperature) mean more collisions and higher pressure. The root mean square (RMS) speed tells us how fast gas particles move on average: sqrt(3RT/M), where M is the molar mass. This explains why lighter gases (like hydrogen) move faster than heavier ones (like nitrogen) at the same temperature.",
+        "engines": "Heat engines are machines that convert thermal energy into mechanical work - they power our cars, trains, planes, and most power plants. The basic idea is simple: take some heat energy, use it to do work, then dump the remaining heat somewhere else (like the exhaust or cooling water). This is described by the Second Law of Thermodynamics - you can't convert ALL heat into work; some must be wasted. The efficiency of a heat engine is the ratio of work output to heat input. The best possible efficiency (Carnot efficiency) depends on the temperature difference between the hot source and cold sink: efficiency = 1 - (T_cold/T_hot), where temperatures are in Kelvin. This is why power plants are so efficient - they operate at very high temperatures (hundreds of degrees Celsius). Car engines aren't as efficient because they can't handle the extreme temperatures that would melt parts. The internal combustion engine in your car works by burning fuel (creating heat), using that heat to push pistons (doing work), and sending exhaust gases out (wasting heat). This four-stroke cycle (intake, compression, power, exhaust) happens hundreds of times per minute!",
+        "entropy": "Entropy is a measure of disorder or randomness in a system, and it's one of the most profound concepts in physics. The Second Law of Thermodynamics states that the total entropy of the universe always increases over time - things naturally get more disordered, never more ordered. This gives us the 'arrow of time' - why time flows forward and why we can't unscramble an egg. When you drop food coloring in water, it spreads out (increases entropy) until it's uniformly mixed - you never see it spontaneously gather back into a drop! Hot things cool down and cold things warm up until they reach equilibrium - this spreads energy more evenly (more entropy). Living things seem to contradict entropy - we organize matter into ordered structures (our bodies). But we constantly consume energy (from food, Sun) and release waste heat, increasing overall entropy. The universe started in a very ordered, low-entropy state (the Big Bang) and has been increasing in entropy ever since. In about 100 trillion years, when all stars die and black holes evaporate, the universe will reach maximum entropy - a cold, dark, uniform soup where nothing interesting can ever happen again!"
+      },
+      "heat": {
+        "title": "Heat Transfer",
+        "description": "Watch how heat moves between objects! Heat can travel by conduction (touch), convection (flow), or radiation (waves)."
+      },
+      "gas": {
+        "title": "Gas Laws",
+        "description": "See how gases behave when heated or compressed! This explains why balloons expand in the sun and shrink in the cold."
+      },
+      "engines": {
+        "title": "Heat Engines",
+        "description": "Learn how engines convert heat into motion! Car engines and steam trains both use this principle."
+      },
+      "entropy": {
+        "title": "Entropy",
+        "description": "Discover why things naturally get messier over time! Entropy explains why you can't unscramble an egg or why time flows forward."
+      }
+    },
+    "waves_page": {
+      "title": "Waves & Sound",
+      "description": "Explore the wonderful world of waves - from sound and light to ocean waves and earthquakes!",
+      "tabs": {
+        "sine": "Sine Waves",
+        "sound": "Sound Waves",
+        "light": "Light",
+        "interference": "Interference"
+      },
+      "descriptions": {
+        "sine": "Sine waves are the simplest and most fundamental type of wave in all of physics. They describe smooth, repetitive up-and-down motion that appears everywhere - from ocean waves to sound to light. The shape comes from the mathematical sine function, which is why we call it a sine wave. When you look at a sine wave, you're seeing a smooth curve that goes up and down in a regular pattern. The highest point is called the crest, the lowest is the trough, and the distance between one crest and the next is the wavelength. How fast the wave oscillates is the frequency (how many complete waves per second), measured in Hertz (Hz). The amplitude is how tall the wave is - this is related to the energy the wave carries. Loud sounds have high amplitude sound waves, bright lights have high amplitude light waves. Period is the time for one complete wave to pass a point - it's the inverse of frequency (T = 1/f). If you double the frequency, the period halves. This simple wave pattern is actually the building block for ALL waves - complex sounds like music, complex light like sunlight, and even radio waves for TV and cell phones can all be broken down into combinations of simple sine waves! This is called Fourier analysis, and it's one of the most powerful tools in all of science and engineering.",
+        "transverse": "In transverse waves, the medium (the stuff the wave travels through) moves PERPENDICULAR (at a 90-degree angle) to the direction the wave is traveling. Imagine doing a 'wave' in a stadium crowd - you stand up and sit down (up and down motion) while the wave travels around the stadium (horizontal motion). That's a transverse wave! Other examples include shaking a rope up and down to create wave patterns that travel along the rope, water waves (where water moves up and down while the wave travels horizontally), and electromagnetic waves (light, radio, X-rays). In electromagnetic waves, there aren't particles moving up and down - instead, electric and magnetic fields oscillate perpendicular to each other and to the direction the wave travels. The key properties are amplitude (how far from the center line, related to energy), wavelength (distance from crest to crest), frequency (how many waves per second), and speed (wavelength × frequency = speed). Light is the fastest thing in the universe at 300,000 km/s - nothing can move faster! The colors we see are different wavelengths - red light has a longer wavelength than blue light.",
+        "standing": "Standing waves are amazing wave patterns that appear when two waves travel in opposite directions and interfere with each other. Imagine tying a rope to a wall and shaking the other end - the wave travels to the wall, bounces back, and then the two waves overlap. In certain spots, the waves always add up to make big waves (these are called antinodes), and in other spots, they always cancel out (nodes). This is why musical instruments make specific notes! When you pluck a guitar string, waves travel back and forth along the string, creating standing waves. The string vibrates in specific patterns depending on how you play it - the lowest note has one big bump in the middle, the next note has two bumps, and so on. This is why different guitar strings and piano keys make different sounds - they're creating standing waves of different lengths. Even the atoms in our bodies vibrate as tiny standing waves!",
+        "doppler": "The Doppler effect is what happens when a source of sound or light moves towards or away from you. Imagine an ambulance driving toward you - the siren sounds higher pitched because the sound waves are getting squished together as the ambulance moves forward. As it drives away, the sound stretches out and becomes lower pitched. The same thing happens with light! If a star is moving toward us, its light gets compressed to higher frequencies (bluer), and if it's moving away, the light stretches to lower frequencies (redder). This is how astronomers know if stars and galaxies are moving toward or away from us - it's the basis of much of what we know about the universe! Police radars use this principle to catch speeders, and weather radars use it to track storms. The faster the source moves, the bigger the shift in frequency!",
+        "doubleslit": "The double-slit experiment is one of the most famous and mind-blowing experiments in physics. When you shine light through two narrow slits side by side, you don't just get two bright stripes - you get a whole pattern of alternating bright and dark stripes called interference fringes. This happens because light waves passing through each slit spread out and overlap with each other. Where a peak meets a peak, you get a bright stripe. Where a peak meets a trough, they cancel out and you get a dark stripe. But here's the crazy part - even if you send just ONE photon (particle of light) at a time through the slits, the interference pattern still builds up over time! This proves that light behaves as both a wave and a particle. Later experiments showed that even electrons (which we think of as particles) can do this too! This experiment helped scientists understand the quantum nature of light and matter.",
+        "sound": "Sound is a longitudinal wave - meaning the molecules in the air move back and forth in the SAME DIRECTION the wave travels, squashing together and pulling apart. When you speak, your vocal cords vibrate, pushing air molecules together (compression) and then pulling them apart (rarefaction). These compressions and rarefactions travel outward like a slinky being pushed and pulled. When these waves reach someone's ears, the eardrum vibrates, and their brain interprets these vibrations as sound. The frequency of the sound wave determines the pitch - high frequency = high pitch (like a whistle), low frequency = low pitch (like a drum). Humans can hear frequencies from about 20 Hz to 20,000 Hz. Dogs can hear higher frequencies (that's why dog whistles work), and bats can hear even higher frequencies using echolocation. Amplitude determines loudness - bigger compressions = louder sound. The speed of sound in air is about 343 m/s at room temperature, but it's faster in water (about 1500 m/s) and even faster in steel (about 5000 m/s). This is why trains seem to 'hear' the sound of an approaching train better by putting your ear to the track!",
+        "light": "Light is an electromagnetic wave - it's exactly the same type of wave as radio, WiFi, X-rays, and microwaves, just with different frequencies. What we call 'visible light' is just a tiny slice of the entire electromagnetic spectrum that our eyes can detect. The electromagnetic spectrum includes (from lowest to highest frequency): radio waves, microwaves, infrared, visible light (red, orange, yellow, green, blue, indigo, violet), ultraviolet, X-rays, and gamma rays. Light travels at the universal speed limit - 299,792,458 m/s (about 300,000 km/s) in a vacuum. Nothing in the universe can travel faster than light! When light enters water or glass, it slows down, which is why prisms can bend (refract) light and create rainbows. The wavelength of light determines its color - red has the longest wavelength (about 700 nanometers), violet has the shortest (about 400 nanometers). Light also behaves as particles called photons - this is the wave-particle duality. Both descriptions are correct, depending on the situation. Light carries energy, and more frequency (like UV) means more energy per photon, which is why UV rays can cause sunburns and damage skin cells!",
+        "interference": "Wave interference is what happens when two or more waves meet and combine together. There are two types: constructive and destructive. In constructive interference, waves add together - when a crest (peak) meets a crest, you get an even bigger crest. When a trough meets a trough, you get an even deeper trough. In destructive interference, waves cancel each other out - when a crest meets a trough, they can completely cancel (if they're equal amplitude) and create a flat line! This is how noise-canceling headphones work - they detect incoming sound waves and create the opposite wave (crest meets trough), canceling the noise before it reaches your ears. Interference also explains the colors you see in soap bubbles and oil slicks - light reflecting from the top and bottom of the thin film interferes, with different colors canceling at different thicknesses. This is why these surfaces appear rainbow-colored. The double-slit experiment shows interference with light - when light passes through two narrow slits, it creates a pattern of alternating bright and dark bands on the other side. This proved that light is a wave! Quantum mechanics takes this even further - individual particles (like electrons) can interfere with themselves, existing in multiple places at once until observed."
+      },
+      "sine": {
+        "title": "Sine Waves",
+        "description": "The basic building block of all waves! Every wave can be made by adding simple sine waves together - it's like musical notes!"
+      },
+      "sound": {
+        "title": "Sound Waves",
+        "description": "See how sound travels through air! Sound is vibrations - when you speak, your vocal cords make the air shake all the way to someone's ears!"
+      },
+      "light": {
+        "title": "Light",
+        "description": "Light is an electromagnetic wave! It travels faster than anything in the universe - nothing can beat it!"
+      },
+      "interference": {
+        "title": "Wave Interference",
+        "description": "See what happens when waves meet! They can add up (constructive) or cancel out (destructive) - this is how noise-canceling headphones work!"
+      }
+    },
+    "modern_page": {
+      "title": "Modern Physics",
+      "description": "Discover the mind-bending physics of the 20th century - relativity, quantum mechanics, and the structure of atoms!",
+      "tabs": {
+        "relativity": "Relativity",
+        "quantum": "Quantum",
+        "atoms": "Atoms",
+        "nuclear": "Nuclear"
+      },
+"descriptions": {
+        "relativity": "Einstein's Theory of Relativity changed our understanding of space and time forever. Before Einstein, people thought space and time were fixed - the same for everyone everywhere. Einstein showed they're not fixed at all! The faster you move through space, the slower you move through time - this is called time dilation. The famous equation E = mc² shows that energy and mass are equivalent - they can convert into each other. This is why the Sun shines (it converts a tiny amount of mass into enormous amounts of energy) and why nuclear bombs are so powerful. As you approach the speed of light, weird things happen: time slows down relative to someone standing still, distances contract (space itself shrinks in the direction of motion), and your mass increases. Nothing with mass can ever reach the speed of light - it would take infinite energy! GPS satellites must account for relativity: because they move fast and are further from Earth's gravity, their clocks run slightly faster than ground clocks. If we didn't correct for this, GPS errors would accumulate at about 10km per day - making navigation useless!",
+        "quantum": "Quantum mechanics is the physics of the incredibly small - atoms, electrons, photons, and other tiny things. At this scale, the rules are completely different from everyday life. The most shocking idea is that particles can behave like waves and waves can behave like particles - this is wave-particle duality. Electrons can be in multiple places at once (superposition) until you observe them - then they 'collapse' into a single state. This is famously illustrated by Schrödinger's cat: in quantum mechanics, a cat in a box can be both alive and dead simultaneously until you look! The Heisenberg Uncertainty Principle says you can never know both the exact position and exact momentum of a particle at the same time - the more you know about one, the less you know about the other. Quantum mechanics isn't just theoretical - it's the reason your phone works! Semiconductors (the tiny chips in computers and phones) rely on quantum effects. Lasers, MRI machines, LED lights, and flash drives all depend on quantum mechanics. The next generation of computers (quantum computers) will use these strange properties to solve problems impossible for regular computers!",
+        "atoms": "Atoms are the building blocks of everything - you're made of them, the air is made of them, and every object around you is made of them. Each atom has a tiny, dense nucleus at the center made of protons (positive charge) and neutrons (no charge). Around this nucleus, electrons orbit in specific energy levels, like planets around a sun (but not exactly - they exist in 'clouds' called orbitals). The number of protons determines what element it is: 1 proton = hydrogen, 6 = carbon, 8 = oxygen, 79 = gold. The electrons determine how atoms bond together - atoms want to have full outer shells, which is why some atoms attract each other to form molecules. Everything in the periodic table is organized by how many protons atoms have. Quantum mechanics tells us that electrons don't actually orbit in neat circles - they exist as probability clouds. There's a specific chance of finding an electron in any given region, but we can never know exactly where it is! The nucleus is incredibly small but contains almost all the atom's mass - if an atom were the size of a football stadium, the nucleus would be a marble in the center!",
+        "atom": "The quantum view of atoms is completely different from the old 'solar system' picture. Electrons don't orbit in neat circles like planets - instead, they exist as 'clouds' called orbitals where we can only calculate the probability of finding them. These orbitals have specific shapes: s orbitals are spheres, p orbitals are dumbbell-shaped, and more complex shapes for higher energy levels. Each orbital can hold a maximum of 2 electrons with opposite 'spins.' When electrons move between energy levels, they absorb or emit photons with specific energies - this creates the light we see in neon signs and fireworks! Each element has a unique 'fingerprint' of light because of its unique energy levels. The Bohr model (electrons as particles in specific orbits) was a stepping stone to the full quantum model. In quantum mechanics, electrons have both particle and wave properties, and their behavior is described by wave functions. When many atoms come together in a solid, their orbitals overlap to form 'bands' - these bands determine whether a material is a conductor, insulator, or semiconductor. This is why silicon is the basis of all computer chips!",
+        "nuclear": "Nuclear physics deals with the incredible power locked inside atoms' nuclei. The nucleus is held together by the 'strong nuclear force' - the strongest force in nature, but it only works over incredibly tiny distances (about the size of the nucleus itself). There are two ways to release this energy: fission (splitting heavy nuclei) and fusion (combining light nuclei). In nuclear fission, heavy atoms like Uranium-235 are split when a neutron hits them, releasing energy and more neutrons. These neutrons can split more atoms, creating a chain reaction - this is what powers nuclear power plants and atomic bombs. In nuclear fusion, light atoms (like hydrogen) are combined under extreme pressure and temperature to form heavier atoms, releasing enormous energy - this is what makes the Sun shine! Fusion releases more energy than fission but requires temperatures of millions of degrees - scientists are working on achieving controlled fusion for clean, limitless energy. The energy comes from mass being converted to energy (E = mc²). When a heavy nucleus splits, the total mass of the pieces is slightly less than the original - that 'missing' mass becomes energy! Nuclear radiation (alpha, beta, gamma rays) comes from unstable nuclei trying to become stable. This radiation has many uses - from treating cancer to dating ancient artifacts!",
+        "photoelectric": "The photoelectric effect is one of the most important discoveries that helped scientists understand light as particles. When light shines on certain metals, it can knock electrons loose - this is called the photoelectric effect. Einstein explained this in 1905: light comes in packets of energy called photons. Each photon has energy based on its color - higher frequency (like blue or UV) means more energy per photon, lower frequency (like red) means less energy. To knock an electron loose, the photon needs a minimum amount of energy (called the work function). If a single photon has enough energy, it can knock loose one electron - no matter how bright the light is! This is why UV light can cause sunburns but red light cannot, even if the red light is very bright. This discovery earned Einstein his Nobel Prize and helped prove that light behaves as both a wave and a particle!",
+        "blackbody": "A blackbody is a perfect absorber and emitter of light. Imagine an object that absorbs all light that hits it - it would look perfectly black. But when you heat it up, it starts glowing! This is blackbody radiation. Hot objects glow different colors: cool objects glow red, hotter ones glow orange/yellow, and very hot ones glow blue-white. This is why metal workers can tell the temperature of hot metal by its color! Scientists discovered that the color of this glow depends ONLY on temperature, not what the object is made of. This seems strange - why would a piece of iron and a piece of wood at the same temperature glow the same color? The answer led to one of the biggest breakthroughs in physics: quantum mechanics! Max Planck solved this puzzle in 1900 by suggesting that energy comes in tiny packets called quanta. This simple idea started the quantum revolution!",
+        "decay": "Nuclear decay is how unstable atoms transform into other atoms. Some atoms have too many protons or neutrons, making them unstable. Over time, they will spontaneously change into more stable atoms by emitting radiation. There are three main types: Alpha decay (emitting a helium nucleus - 2 protons and 2 neutrons), Beta decay (a neutron turns into a proton, emitting an electron), and Gamma decay (releasing high-energy light). Each type has different penetrating power - alpha particles can be stopped by paper, beta by plastic, but gamma needs thick lead! This decay happens at a random but predictable rate. We measure this with 'half-life' - the time it takes half of a sample to decay. Carbon-14 has a 5,730-year half-life, which is perfect for dating ancient artifacts! Uranium-235 has a 700 million year half-life, used in nuclear power plants. This process is also how stars create all the elements heavier than hydrogen and helium!"
+      },
+      "relativity": {
+        "title": "Relativity",
+        "description": "Einstein showed that time and space aren't fixed! The faster you move, the slower time passes - this is real science, not science fiction!"
+      },
+      "quantum": {
+        "title": "Quantum Mechanics",
+        "description": "The physics of the incredibly small! Atoms can be in two places at once and cats can be alive and dead - welcome to quantum weirdness!"
+      },
+      "atoms": {
+        "title": "Atomic Structure",
+        "description": "Everything is made of atoms! Atoms have a tiny nucleus with protons and neutrons, surrounded by electrons - mostly empty space!"
+      },
+      "nuclear": {
+        "title": "Nuclear Physics",
+        "description": "Learn about the incredible power inside every atom! Nuclear reactions power the Sun and can generate enough energy for entire cities."
+      }
+    },
+    "optics": {
+      "title": "Optics",
+      "description": "Explore the world of light, mirrors, lenses, refraction, and reflection through advanced and visually stunning interactive simulations.",
+      "badge": "Advanced Optics",
+      "tabs": {
+        "reflection": "Reflection & Mirrors",
+        "refraction": "Refraction (Snell)",
+        "lenses": "Lenses & Images",
+        "rainbow": "Rainbow Formation",
+        "fiber": "Fiber Optics",
+        "polarization": "Polarization",
+        "colormixing": "Color Mixing",
+        "telescope": "Telescope Builder",
+        "sandbox": "Laser Sandbox"
+      },
+      "desc": {
+        "reflection": "This simulation demonstrates the laws of reflection on plane and spherical (concave and convex) mirrors. Notice how the angle of incidence always equals the angle of reflection.",
+        "refraction": "Simulation of Snell's law of refraction. It shows the change in the path of light when it travels between two media of different densities, with the possibility of total internal reflection.",
+        "lenses": "Shows how images are formed by convex and concave lenses. Control the object distance and focal length to observe the change in size, position, and type of the image (real or virtual).",
+        "rainbow": "Discover how rainbows are formed! Sunlight enters a spherical water droplet, refracts and disperses into different colors, reflects off the back of the drop, and refracts again as it exits, creating the beautiful 42° arc we see in the sky.",
+        "fiber": "Explore Total Internal Reflection (TIR) inside an optical fiber. When light enters at the right angle, it gets trapped inside the core, bouncing off the cladding. This is how high-speed internet works!",
+        "polarization": "Light is an electromagnetic wave that oscillates in many directions. A polarizer blocks all directions except one. Notice what happens when light passes through two polarizers at different angles (Malus's Law).",
+        "colormixing": "Mix Red, Green, and Blue (RGB) light spotlights to create any color. This is additive color mixing, which is exactly how your phone and computer screens produce all the colors you see.",
+        "telescope": "Build an astronomical telescope by combining an objective lens and an eyepiece. See how parallel light from distant stars is gathered to form a real image, which is then magnified by the eyepiece.",
+        "sandbox": "A fully interactive laser and mirror sandbox. Add multiple mirrors, drag them around, and rotate them to create your own complex laser maze. Watch how the laser beam follows the laws of reflection infinitely!"
+      },
+      "reflection_controls": "Reflection Controls",
+      "plane": "Plane",
+      "concave": "Concave",
+      "convex": "Convex",
+      "incident_angle": "Incident Angle",
+      "results": "Results",
+      "reflection_angle": "Reflection Angle",
+      "type": "Type",
+      "refraction_controls": "Refraction Index",
+      "n1": "Medium 1 (n1)",
+      "n2": "Medium 2 (n2)",
+      "refraction_angle": "Refraction Angle",
+      "state": "State",
+      "tir": "Total Internal Reflection",
+      "refracted": "Refracted",
+      "lenses_controls": "Lenses Controls",
+      "lens_convex": "Convex",
+      "lens_concave": "Concave",
+      "object_dist": "Object Distance",
+      "focal_length": "Focal Length",
+      "image_dist": "Image Distance",
+      "magnification": "Magnification",
+      "image_type": "Image Type",
+      "real": "Real",
+      "virtual": "Virtual",
+      "rainbow_controls": "Rainbow Controls",
+      "drop_index": "Drop Index of Refraction",
+      "ray_height": "Sunlight Ray Height",
+      "fiber_controls": "Fiber Optics Controls",
+      "core_index": "Core Index",
+      "clad_index": "Cladding Index",
+      "entry_angle": "Entry Angle",
+      "internal_angle": "Internal Angle",
+      "tir_success": "TIR (Trapped)",
+      "tir_fail": "Light Escapes",
+      "polarization_controls": "Polarization Controls",
+      "polarizer1": "Polarizer 1",
+      "polarizer2": "Analyzer",
+      "angle1": "Polarizer 1 Angle",
+      "angle2": "Analyzer Angle",
+      "intensity0": "Initial Intensity (I₀)",
+      "intensity1": "Intensity after P1 (I₁)",
+      "intensity2": "Final Intensity (I₂)",
+      "colormixing_controls": "Color Mixing Controls",
+      "red_intensity": "Red Intensity",
+      "green_intensity": "Green Intensity",
+      "blue_intensity": "Blue Intensity",
+      "resulting_color": "Resulting Color",
+      "telescope_controls": "Telescope Controls",
+      "f_objective": "Objective Focal Length",
+      "f_eyepiece": "Eyepiece Focal Length",
+      "lens_dist": "Distance Between Lenses",
+      "sandbox_controls": "Sandbox Controls",
+      "add_mirror": "Add Plane Mirror",
+      "clear_mirrors": "Clear All",
+      "drag_instruction": "Drag mirrors/laser to move. Drag mirror ends to rotate."
+    },
+    "library_page": {
+      "title": "Physics Library",
+      "description": "Your reference guide for all things physics!"
+    },
+    "challenges_page": {
+      "title": "Physics Challenges",
+      "description": "Test your physics knowledge with fun challenges!"
+    },
+    "common": {
+      "controls": "Controls",
+      "results": "Results",
+      "launch": "Launch",
+      "start": "Start",
+      "stop": "Stop",
+      "reset": "Reset",
+      "pause": "Pause",
+      "resume": "Resume",
+      "time": "Time",
+      "position": "Position",
+      "velocity": "Velocity",
+      "acceleration": "Acceleration",
+      "force": "Force",
+      "energy": "Energy",
+      "momentum": "Momentum",
+      "period": "Period",
+      "frequency": "Frequency",
+      "amplitude": "Amplitude",
+      "wavelength": "Wavelength",
+      "temperature": "Temperature",
+      "pressure": "Pressure",
+      "volume": "Volume",
+      "about_experiment": "How It Works"
+    }
+  },
+
+  "index": {
+    "subtitle": "Chemistry Laboratory",
+    "title": "Chemistry Laboratory",
+    "tabs": {
+      "simulator": "Simulator",
+      "simulator_short": "Sim",
+      "calculator": "Calculator",
+      "calculator_short": "Calc"
+    },
+    "sections": {
+      "periodic_table": "Periodic Table",
+      "periodic_table_description": "Select elements for reactions"
+    },
+    "no_reaction_title": "No reaction found",
+    "no_reaction_suggestion": "Try H+O, Na+Cl, Fe+S, Cu+O, etc."
+  },
+  "chemistry": {
+    "title": "Chemistry Lab",
+    "page_title": "Chemistry Labs",
+    "page_description": "Interactive Lab",
+    "reactions": "Reactions",
+    "compounds": "Compounds",
+    "elements": "Elements",
+    "periodictable": "Periodic Table",
+    "reactionChamber": "Reaction Chamber",
+    "reactionHistory": "Reaction History",
+    "formula": "Formula",
+    "state": "State",
+    "temperature": "Temperature",
+    "pressure": "Pressure",
+    "inputCompound": "Input compound formula or name",
+    "add": "Add",
+    "clear": "Clear",
+    "result": "Result",
+    "products": "Products",
+    "reactants": "Reactants",
+    "balanced": "Balanced",
+    "notBalanced": "Not Balanced",
+    "error": "Error",
+    "success": "Success",
+    "compound_library": {
+      "title": "Compound Library",
+      "description": "Select compounds for advanced reactions",
+      "search_placeholder": "Search compounds...",
+      "selected_label": "Selected Compounds:",
+      "no_match": "No compounds matching your search"
+    },
+    "reaction_chamber": {
+      "title": "Reaction Chamber",
+      "description": "Combine elements and compounds to see reactions",
+      "empty_state": "Select elements from the periodic table or compounds from the library to begin",
+      "button": "React"
+    },
+    "reaction_history": {
+      "title": "Recent Reactions",
+      "reaction_count_singular": "reaction",
+      "reaction_count_plural": "reactions"
+    },
+    "reaction_types": {
+      "synthesis": "Synthesis",
+      "decomposition": "Decomposition",
+      "single_replacement": "Single Replacement",
+      "double_replacement": "Double Replacement",
+      "combustion": "Combustion",
+      "acid_base": "Acid-Base",
+      "redox": "Redox",
+      "precipitation": "Precipitation",
+      "neutralization": "Neutralization",
+      "oxidation": "Oxidation"
+    },
+    "element_info": {
+      "mass": "Mass",
+      "electronegativity": "Electronegativity",
+      "melting_point": "Melting Pt",
+      "boiling_point": "Boiling Pt",
+      "config": "Config",
+      "phase": "Phase",
+      "oxidation_states": "Oxidation States",
+      "related_reactions": "Related Reactions"
+    },
+    "no_reaction": {
+      "message": "No reaction found",
+      "suggestion": "Try H+O, Na+Cl, Fe+S, Cu+O, etc."
+    },
+    "calculators": {
+      "ph_poh": {
+        "name": "pH / pOH Calculator",
+        "description": "Calculate pH, pOH, and ion concentrations"
+      },
+      "molarity": {
+        "name": "Molarity Calculator",
+        "description": "Calculate molarity from moles and volume"
+      }
+    },
+    "energy": "Energy",
+    "about_reaction": "About This Reaction",
+    "real_world_use": "Real-World Use",
+    "safety": "Safety",
+    "catalyst": "Catalyst"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "search": "Search",
+    "notFound": "Not Found",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "glossary": {
+    "search_placeholder": "Search terms..."
+  },
+  "compound": {
+    "categories": {
+      "all": "All Compounds",
+      "acids": "Acids",
+      "bases": "Bases",
+      "salts": "Salts",
+      "oxides": "Oxides",
+      "organic": "Organic",
+      "gases": "Gases",
+      "metals": "Metal Compounds",
+      "halides": "Halides",
+      "carbonates": "Carbonates",
+      "sulfates": "Sulfates",
+      "nitrates": "Nitrates",
+      "hydroxides": "Hydroxides",
+      "peroxides": "Peroxides",
+      "complexes": "Complex Ions"
+    }
+  },
+  "elements": {
+    "categories": {
+      "alkali": "Alkali Metal",
+      "alkaline": "Alkaline Earth",
+      "transition": "Transition Metal",
+      "post-transition": "Post-Transition",
+      "metalloid": "Metalloid",
+      "nonmetal": "Nonmetal",
+      "halogen": "Halogen",
+      "noble": "Noble Gas",
+      "lanthanide": "Lanthanide",
+      "actinide": "Actinide"
+    }
+  },
+  "periodic": {
+    "categories": "Element Categories"
+  },
+
+  "calc": {
+    "calculators": "Calculators",
+    "ph": { "name": "pH Calculator", "desc": "Calculate pH, pOH, [H⁺], [OH⁻]" },
+    "molarity": { "name": "Molarity", "desc": "M = mol / L" },
+    "moles": { "name": "Moles", "desc": "n = mass / molar mass" },
+    "dilution": { "name": "Dilution", "desc": "M₁V₁ = M₂V₂" },
+    "gas": { "name": "Ideal Gas Law", "desc": "PV = nRT" },
+    "gibbs": { "name": "Gibbs Free Energy", "desc": "ΔG = ΔH - TΔS" },
+    "keq": { "name": "Equilibrium Constant", "desc": "K from ΔG" },
+    "nernst": { "name": "Nernst Equation", "desc": "Electrode potential" },
+    "arrhenius": { "name": "Arrhenius Equation", "desc": "Rate constant k" },
+    "bpe": { "name": "Boiling Point Elevation", "desc": "ΔTb = iKbm" },
+    "fpd": { "name": "Freezing Point Depression", "desc": "ΔTf = iKfm" },
+    "osmotic": { "name": "Osmotic Pressure", "desc": "π = iMRT" },
+    "hh": { "name": "Henderson-Hasselbalch", "desc": "Buffer pH" },
+    "molality": { "name": "Molality", "desc": "mol / kg solvent" },
+    "pcomp": { "name": "% Composition", "desc": "Mass percent" },
+    "bonds": { "name": "Bond Energies", "desc": "Common bond energies" },
+    "potentials": { "name": "Electrode Potentials", "desc": "Standard E° values" },
+    "solubility": { "name": "Solubility Rules", "desc": "Soluble/insoluble" },
+    "polyatomic": { "name": "Polyatomic Ions", "desc": "Common ions reference" },
+    "activity": { "name": "Activity Series", "desc": "Metal reactivity" },
+    "acidic": "Acidic",
+    "basic": "Basic",
+    "neutral": "Neutral",
+    "spontaneous": "Spontaneous",
+    "non_spontaneous": "Non-spontaneous",
+    "products_favored": "Products favored",
+    "reactants_favored": "Reactants favored"
+  },
+  "global": {
+    "brand": {
+      "tagline": "Science through Innovation and Excellence"
+    }
+  },
+  "biology": {
+    "page_title": "Interactive Biology",
+    "badge": "Life Science",
+    "description": "Explore the wonders of life through our multi-age interactive laboratory. From microscopic DNA strands to complex ecosystems, discover the science that connects us all.",
+    "upcoming_topics": "Lab Modules",
+    "features": {
+      "genetics": {
+        "title": "Genetics & DNA",
+        "desc": "Explore DNA structure, gene expression, and heredity across all ages."
+      },
+      "cells": {
+        "title": "Cell Biology",
+        "desc": "Interactive cell models with organelles and biological processes."
+      },
+      "anatomy": {
+        "title": "Human Anatomy",
+        "desc": "3D body systems and organ function simulations for everyone."
+      }
+    },
+    "topics": {
+      "cell_biology": "Cell Biology",
+      "genetics": "Genetics & DNA",
+      "ecology": "Ecology",
+      "human_body": "Human Body",
+      "evolution": "Evolution",
+      "microbiology": "Microbiology"
+    },
+    "cta": {
+      "back": "Back to Home",
+      "explore": "Explore Current Labs"
+    }
+  },
+  "earth_science": {
+    "page_title": "Earth Science Lab",
+    "badge": "Planet Earth",
+    "description": "An interactive laboratory designed for all ages to explore the natural and geological forces that shape our world, from tectonic plates to atmospheric patterns.",
+    "upcoming_topics": "Earth Modules",
+    "features": {
+      "geology": {
+        "title": "Geology",
+        "desc": "Explore rocks, minerals, and Earth's dynamic layers."
+      },
+      "hydrology": {
+        "title": "Hydrology",
+        "desc": "Water cycle, rivers, oceans, and global groundwater systems."
+      },
+      "atmosphere": {
+        "title": "Atmosphere",
+        "desc": "Weather patterns, climate systems, and atmospheric science."
+      }
+    },
+    "topics": {
+      "rocks_minerals": "Rocks & Minerals",
+      "plate_tectonics": "Plate Tectonics",
+      "volcanoes": "Volcanoes",
+      "weather_climate": "Weather & Climate",
+      "water_cycle": "Water Cycle",
+      "earthquakes": "Earthquakes"
+    },
+    "cta": {
+      "back": "Back to Home",
+      "explore": "Explore Physics Lab"
+    }
+  },
+  "chat": {
+    "title": "Science AI Tutor",
+    "subtitle": "Chemistry & Physics Expert",
+    "openChat": "Open AI Tutor",
+    "welcome": "Welcome! 🧪",
+    "askAnything": "Ask me anything about Chemistry or Physics!",
+    "suggestionChemistry": "Explain electron configuration",
+    "suggestionPhysics": "How does projectile motion work?",
+    "suggestionFormula": "What's the ideal gas law?",
+    "placeholder": "Type your question here...",
+    "thinking": "Thinking...",
+    "charactersRemaining": "{{remaining}} characters remaining",
+    "description": "Ask questions about chemistry, physics, and how to use the UN Lab tools",
+    "error": "Oops! Something went wrong",
+    "errorMessage": "Failed to get response from tutor",
+    "errorDescription": "Please try again or check your internet connection",
+    "copySuccess": "Response copied to clipboard!",
+    "clearChat": "Clear Chat"
+  },
+  "search": {
+    "aria_label": "Open search (Cmd+K)",
+    "placeholder": "Search anything...",
+    "no_results": "No results found",
+    "try_different": "Try a different keyword, formula, or element",
+    "type_for_more": "Type to search 700+ reactions, elements & compounds",
+    "groups": {
+      "recent": "Recent",
+      "actions": "Quick actions",
+      "labs": "Labs & Pages",
+      "tools": "Tools",
+      "reactions": "Reactions",
+      "elements": "Elements",
+      "compounds": "Compounds"
+    },
+    "actions": {
+      "open_chemistry": "Open Chemistry Simulator",
+      "open_chemistry_hint": "Periodic table & 500+ reactions",
+      "try_water": "Try water synthesis",
+      "go_home": "Go to homepage",
+      "go_home_hint": "Back to all labs"
+    },
+    "hints": {
+      "navigate": "navigate",
+      "select": "select",
+      "close": "close"
+    }
+  },
+  "share": {
+    "title": "Share reaction",
+    "button": "Share",
+    "copied": "Link copied!",
+    "copied_desc": "Share it anywhere — opens directly to this reaction.",
+    "copy": "Copy link",
+    "open_link": "Open shared link",
+    "share_text": "Check out this reaction in UN Lab:"
+  },
+  "pwa": {
+    "banner_aria": "Install app",
+    "title": "Install UN Lab",
+    "body": "Add to your home screen for faster access, offline support, and a full-screen lab experience.",
+    "install": "Install",
+    "later": "Not now",
+    "dismiss_aria": "Dismiss",
+    "ios_title": "Add UN Lab to your Home Screen",
+    "ios_body": "Install this app for quick access and a smoother experience on your iPhone or iPad.",
+    "ios_steps": "Tap Share, then “Add to Home Screen”.",
+    "offline_ready": "UN Lab is ready to work offline.",
+    "update_available": "A new version is available.",
+    "reload": "Reload",
+    "landing_title": "Install UN Lab on your device",
+    "landing_kicker": "Install",
+    "landing_subtitle": "Get a home-screen shortcut, faster loading, and labs that work offline once you’ve visited them.",
+    "landing_cta": "Install app",
+    "landing_installing": "Opening installer…",
+    "landing_ios": "On iPhone or iPad: tap Share → “Add to Home Screen”.",
+    "landing_ios_badge": "Use Share → Add to Home Screen",
+    "landing_chrome": "No install prompt yet? Use Chrome or Edge: look for the install icon in the address bar, or the browser menu → “Install this site as an app”."
+  }
+}
