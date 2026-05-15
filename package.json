@@ -55,6 +55,7 @@
     "@tensorflow/tfjs": "^4.22.0",
     "@tensorflow/tfjs-tflite": "^0.0.1-alpha.10",
     "@types/three": "^0.170.0",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/og": "^0.11.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
