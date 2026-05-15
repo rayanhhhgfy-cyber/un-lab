@@ -58,6 +58,7 @@ import { SearchProvider } from "@/components/search/SearchContext";
 import PwaInstallBanner from "@/components/pwa/PwaInstallBanner";
 import OfflineIndicator from "@/components/pwa/OfflineIndicator";
 const ChatWidget = lazy(() => import("@/components/chat/ChatWidget"));
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -143,6 +144,7 @@ const App = () => (
           </SearchProvider>
         </BrowserRouter>
       </ChatProvider>
+      <Analytics />
     </TooltipProvider>
   </QueryClientProvider>
 );
