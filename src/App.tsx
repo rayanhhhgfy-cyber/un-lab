@@ -57,6 +57,7 @@ import { ChatProvider } from "@/components/chat/ChatContext";
 import { SearchProvider } from "@/components/search/SearchContext";
 import PwaInstallBanner from "@/components/pwa/PwaInstallBanner";
 import OfflineIndicator from "@/components/pwa/OfflineIndicator";
+import { Analytics } from "@vercel/analytics/react";
 const ChatWidget = lazy(() => import("@/components/chat/ChatWidget"));
 
 const queryClient = new QueryClient({
@@ -75,6 +76,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <Analytics />
       <ChatProvider>
         <BrowserRouter>
           <SearchProvider>
