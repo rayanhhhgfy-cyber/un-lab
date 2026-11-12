@@ -226,6 +226,9 @@ export default function Footer() {
               <p className="text-xs xs:text-xs sm:text-sm text-gray-400 font-light">
                 {t('footer.copyright', { year: currentYear })}
               </p>
+              <p className="text-xs xs:text-xs sm:text-sm text-gray-400 font-light mt-2">
+                Built by <a href="https://rayyans-showroom.vercel.app/projects/un-lab" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2">Rayyan Aljamal</a>
+              </p>
             </div>
           </motion.div>
 
